@@ -1,0 +1,20 @@
+<svg width="186" height="186" viewBox="0 0 186 186" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="check_FILL0_wght400_GRAD0_opsz24 1">
+<g id="Vector" filter="url(#filter0_d_1490_3965)">
+<path d="M77.9713 129.789L43.0029 94.821L51.745 86.079L77.9713 112.305L134.258 56.0184L143 64.7605L77.9713 129.789Z" fill="white"/>
+</g>
+<circle id="Ellipse 220" cx="93.5736" cy="92.4259" r="78.9097" stroke="white" stroke-width="1.77325"/>
+</g>
+<defs>
+<filter id="filter0_d_1490_3965" x="32.0966" y="52.383" width="121.81" height="95.5836" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="7.27087"/>
+<feGaussianBlur stdDeviation="5.45316"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1490_3965"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1490_3965" result="shape"/>
+</filter>
+</defs>
+</svg>
