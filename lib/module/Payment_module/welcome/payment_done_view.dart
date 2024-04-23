@@ -5,10 +5,8 @@ import 'package:get/get.dart';
 import '../../../common/app_colors.dart';
 import '../../../common/app_texts.dart';
 import '../../home_module/Widgets/home_drawer.dart';
-
 class PaymentDoneView extends StatelessWidget {
   const PaymentDoneView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +16,7 @@ class PaymentDoneView extends StatelessWidget {
           subTitle: AppTexts.paymentDoneSubTitleText,
           descriptionText: AppTexts.paymentDoneDEscriptionText,
           onPressed: () {
-            Get.to(HomePageDrawer() , binding: HomeBinding());
+            Get.to(const HomePageDrawer() , binding: HomeBinding());
           },
         ));
   }

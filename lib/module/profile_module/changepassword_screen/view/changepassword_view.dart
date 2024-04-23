@@ -52,9 +52,9 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 16.h),
+              SizedBox(height: 13.h),
               Container(
-                height: 48.h,
+                height: 43.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
@@ -62,24 +62,133 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                     color: AppColors.whiteTextColor.withOpacity(0.4),
                   ),
                 ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 7.h , horizontal: 5.w),
+                child: Obx(() {
+                  return TextFormField(
+                    focusNode: controller.focusNode1,
+                    textInputAction: TextInputAction.next,
+                    onFieldSubmitted: (_) {
+                      FocusScope.of(context).requestFocus(controller.focusNode2);
+                    },
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    obscureText: controller.obscureText.value,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: 14.h),
+                      prefixIcon: Icon(Icons.lock_outline, color: AppColors.whiteTextColor, size: 16.h,),
+                      suffixIcon: GestureDetector(
+                        onTap: controller.toggleObscureText,
+                        child: Icon(
+                          controller.obscureText.value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                          color: Colors.white,
+                          size: 16.h,
+                        ),
+                      ),
+                      hintText: "xxxxxxx",
+                      hintStyle:  TextStyle(
+                        color: AppColors.borderHintColor,
+                        fontFamily: AppTextStyles.fontFamily,
+                      ),
+                      border: InputBorder.none,
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  );
+                }),
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                'New Password',
+                style: TextStyle(
+                  fontSize: 13.sp,
+                  fontFamily: AppTextStyles.fontFamily,
+                  color: AppColors.whiteTextColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              SizedBox(height: 13.h),
+              Container(
+                height: 43.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    width: 1,
+                    color: AppColors.whiteTextColor.withOpacity(0.4),
+                  ),
+                ),
+                child: Center(
                   child: Obx(() {
                     return TextFormField(
-                      focusNode: controller.focusNode1,
+                      focusNode: controller.focusNode2,
                       textInputAction: TextInputAction.next,
                       onFieldSubmitted: (_) {
-                        FocusScope.of(context).requestFocus(controller.focusNode2);
+                        FocusScope.of(context).requestFocus(controller.focusNode3);
                       },
                       maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                      obscureText: controller.obscureText.value,
+                      obscureText: controller.newText.value,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.lock, color: AppColors.whiteTextColor, size: 16.h,),
+                        contentPadding: EdgeInsets.symmetric(vertical: 14.h),
+                        prefixIcon: Icon(Icons.lock_outline, color: AppColors.whiteTextColor, size: 16.h,),
                         suffixIcon: GestureDetector(
-                          onTap: controller.toggleObscureText,
+                          onTap: controller.toggleNewText,
                           child: Icon(
-                            controller.obscureText.value ? Icons.visibility_off : Icons.visibility,
+                            controller.newText.value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
                             color: Colors.white,
+                            size: 16.h,
+                          ),
+                        ),
+                        hintText: "xxxxxxx",
+                        hintStyle:  TextStyle(
+                          color: AppColors.borderHintColor,
+                          fontFamily: AppTextStyles.fontFamily,
+                        ),
+                        border: InputBorder.none,
+                        enabledBorder: const UnderlineInputBorder(
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    );
+                  }),
+                ),
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                'Confirm Password',
+                style: TextStyle(
+                  fontSize: 13.sp,
+                  fontFamily: AppTextStyles.fontFamily,
+                  color: AppColors.whiteTextColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              SizedBox(height: 13.h),
+              Container(
+                height: 43.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    width: 1,
+                    color: AppColors.whiteTextColor.withOpacity(0.4),
+                  ),
+                ),
+                child: Center(
+                  child: Obx(() {
+                    return TextFormField(
+                      focusNode: controller.focusNode3,
+                      textInputAction: TextInputAction.next,
+                      onFieldSubmitted: (_) {
+                        FocusScope.of(context).requestFocus(controller.focusNode4);
+                      },
+
+                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                      obscureText: controller.confirmText.value,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(vertical:14.h),
+                        prefixIcon: Icon(Icons.lock_outline, color: AppColors.whiteTextColor, size: 16.h,),
+                        suffixIcon: GestureDetector(
+                          onTap: controller.toggleFirmText,
+                          child: Icon(
+                            controller.confirmText.value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                            color: AppColors.whiteTextColor,
                             size: 16.h,
                           ),
                         ),
@@ -97,119 +206,23 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                   }),
                 ),
               ),
-              SizedBox(height: 22.h),
-              Text(
-                'New Password',
-                style: TextStyle(
-                  fontSize: 13.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  color: AppColors.whiteTextColor,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(height: 15.h),
+              SizedBox(height: 205.h,),
               Container(
-                height: 48.h,
+                height: 47.h,
+                width: 310.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 1,
-                    color: AppColors.whiteTextColor.withOpacity(0.4),
-                  ),
+                  color:AppColors.btnGreyColor,
                 ),
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 7.h , horizontal: 5.w),
-                    child: Obx(() {
-                      return TextFormField(
-                        focusNode: controller.focusNode2,
-                        textInputAction: TextInputAction.next,
-                        onFieldSubmitted: (_) {
-                          FocusScope.of(context).requestFocus(controller.focusNode3);
-                        },
-                        maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                        obscureText: controller.newText.value,
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.lock, color: AppColors.whiteTextColor, size: 16.h,),
-                          suffixIcon: GestureDetector(
-                            onTap: controller.toggleNewText,
-                            child: Icon(
-                              controller.newText.value ? Icons.visibility_off : Icons.visibility,
-                              color: Colors.white,
-                              size: 16.h,
-                            ),
-                          ),
-                          hintText: "xxxxxxx",
-                          hintStyle: const TextStyle(
-                            color: Color(0xffD0D0D0),
-                            fontFamily: AppTextStyles.fontFamily,
-                          ),
-                          border: InputBorder.none,
-                          enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      );
-                    }),
-                  ),
-                ),
-              ),
-              SizedBox(height: 22.h),
-              Text(
-                'Confirm Password',
-                style: TextStyle(
-                  fontSize: 13.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  color: AppColors.whiteTextColor,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(height: 15.h),
-              Container(
-                height: 48.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 1,
-                    color: AppColors.whiteTextColor.withOpacity(0.4),
-                  ),
-                ),
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 7.h , horizontal: 5.w),
-                    child: Obx(() {
-                      return TextFormField(
-                        focusNode: controller.focusNode3,
-                        textInputAction: TextInputAction.next,
-                        onFieldSubmitted: (_) {
-                          FocusScope.of(context).requestFocus(controller.focusNode4);
-                        },
-
-                        maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                        obscureText: controller.confirmText.value,
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.lock, color: AppColors.whiteTextColor, size: 16.h,),
-                          suffixIcon: GestureDetector(
-                            onTap: controller.toggleFirmText,
-                            child: Icon(
-                              controller.confirmText.value ? Icons.visibility_off : Icons.visibility,
-                              color: AppColors.whiteTextColor,
-                              size: 16.h,
-                            ),
-                          ),
-                          hintText: "xxxxxxx",
-                          hintStyle: const TextStyle(
-                            color: Color(0xffD0D0D0),
-                            fontFamily: AppTextStyles.fontFamily,
-                          ),
-                          border: InputBorder.none,
-                          enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      );
-                    }),
-                  ),
+                child:Center(
+                  child: Text(
+                    'Save Changes',
+                    style: TextStyle(
+                      fontSize: 13.sp,
+                      fontFamily: AppTextStyles.fontFamily,
+                      color:AppColors.whiteTextColor,
+                      fontWeight: FontWeight.w500,
+                    ),),
                 ),
               ),
             ],

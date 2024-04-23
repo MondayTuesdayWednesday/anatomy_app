@@ -25,26 +25,23 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
                 controller.toggleDrawer();
               }, icon: Icon(
                 Icons.close,
-                size: 22,
+                size: 22.h,
                 color: AppColors.whiteTextColor,
               )),
               Spacer(),
               Text("Discover", style: TextStyle(
                   fontFamily: AppTextStyles.fontFamily,
                   fontWeight: FontWeight.w700,
-                  fontSize: 15.sp,
+                  fontSize: 15.h,
                   color: AppColors.whiteTextColor
               ),)
             ],
           ),
           SizedBox(
-            height: 40.h,
+            height: 20.h,
           ),
       
           draweritem(Icons.circle_outlined, 'All Models', () {},),
-          SizedBox(
-            height: 25.h,
-          ),
       
           Obx(() {
             return Column(
@@ -52,7 +49,7 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
               children: [
                 draweritem(
                   Icons.description_outlined,
-                  'Preferences+',
+                  'Preferences +',
                       () {
                     controller.togglePreferences();
                   },
@@ -74,21 +71,14 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
               ],
             );
           }),
-          SizedBox(
-            height: 27.h,
-          ),
+
       
           draweritem(Icons.favorite_outline, 'Saved', () {}),
-          SizedBox(
-            height: 27.h,
-          ),
       
           draweritem(Icons.settings_outlined, 'Settings', () {
             Get.to( const ProfileView() , binding:  ProfileBinding());
           }),
-          SizedBox(
-            height: 27.h,
-          ),
+
           draweritem(Icons.help_outline, 'Help', () {
       
           })

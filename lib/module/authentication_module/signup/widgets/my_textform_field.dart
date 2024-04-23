@@ -34,7 +34,7 @@ class MyTextFormField extends StatelessWidget {
         obscureText: obscureText,
         controller: controller,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 20.w, bottom: 8.h, top: 5.h),
+          contentPadding: EdgeInsets.only(left: 20.w, bottom: 15.h, top: 15.h),
           border: InputBorder.none,
           suffixIcon: suffixIcon,
           hintText: text,

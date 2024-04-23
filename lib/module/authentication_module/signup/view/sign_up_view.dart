@@ -14,17 +14,15 @@ import '../../signin/view/sign_in_view.dart';
 import '../../widgets/auth_btn.dart';
 import '../controller/sign_up_controller.dart';
 import '../widgets/my_textform_field.dart';
-
 class SignUpPage extends GetView<SignUpController> {
   const SignUpPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgThemeColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only( top: 80.h,left: 25.w, right: 25.w),
+          padding: EdgeInsets.only( top: 90.h,left: 26.w, right: 26.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,67 +31,56 @@ class SignUpPage extends GetView<SignUpController> {
                   AppTexts.createAnAccountText,
                   style: AppTextStyles.weightEight(
                     context: context,
-                    color: AppColors.themeColor,
-                    fontSize: 22.sp,
+                    fontSize: 20.sp,
                   ),
                 ),
               ),
               SizedBox(
-                height: 25.h,
+                height: 28.h,
               ),
               Text(
                 AppTexts.nameText,
-                style: TextStyle(
-                  color: AppColors.whiteTextColor,
-                  fontSize: 14.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  fontWeight: FontWeight.w400,
+                style: AppTextStyles.weightFour(
+                  context: context,
+                  fontSize: 12.sp,
                 ),
               ),
               SizedBox(
-                height: 7.h,
+                height: 10.h,
               ),
               MyTextFormField(
                 controller: controller.nameController,
                 text: AppTexts.enterNameText,
               ),
               SizedBox(
-                height: 10.h,
+                height: 17.h,
               ),
               Text(
                 AppTexts.emailText,
-                style: TextStyle(
-                  color: AppColors.whiteTextColor,
-                  fontSize: 14.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: AppTextStyles.weightFour(
+                  context: context,
+                  fontSize: 12.sp,
+                  ),
               ),
               SizedBox(
-                height: 7.h,
+                height: 10.h,
               ),
               MyTextFormField(
                 controller: controller.emailController,
                 text: AppTexts.enterEmailText,
-                suffixIcon: const Icon(
-                  Icons.visibility,
-                  color: Colors.transparent,
+              ),
+              SizedBox(
+                height: 17.h,
+              ),
+              Text(
+                AppTexts.passwordText,
+                style: AppTextStyles.weightFour(
+                  fontSize: 12.sp,
+                  context: context
                 ),
               ),
               SizedBox(
                 height: 10.h,
-              ),
-              Text(
-                AppTexts.passwordText,
-                style: TextStyle(
-                  color: AppColors.whiteTextColor,
-                  fontSize: 14.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(
-                height: 7.h,
               ),
               Obx(() {
                 return MyTextFormField(
@@ -115,17 +102,15 @@ class SignUpPage extends GetView<SignUpController> {
                 );
               }),
               SizedBox(
-                height: 5.h,
+                height: 12.h,
               ),
               Padding(
                 padding:  EdgeInsets.only(left: 10.w),
                 child: Text(
                   AppTexts.passwordHelperText,
-                  style: TextStyle(
-                    color: AppColors.whiteTextColor,
-                    fontSize: 10.sp,
-                    fontFamily: AppTextStyles.fontFamily,
-                    fontWeight: FontWeight.w400,
+                  style: AppTextStyles.weightFour(
+                    fontSize: 8.sp,
+                    context: context,
                   ),
                 ),
               ),
@@ -145,7 +130,7 @@ class SignUpPage extends GetView<SignUpController> {
                     btnHeight: 45.h,
                   )),
               SizedBox(
-                height: 20.h,
+                height: 34.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -154,7 +139,7 @@ class SignUpPage extends GetView<SignUpController> {
                     child: Divider(
                       height: 10.h,
                       thickness: 0.5,
-                      color: AppColors.borderHintColor,
+                      color:Color(0xffE1E1E1),
                     ),
                   ),
                   Padding(
@@ -162,11 +147,10 @@ class SignUpPage extends GetView<SignUpController> {
                     child: Text(
                       AppTexts.orText,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: AppColors.borderHintColor,
-                        fontSize: 16.sp,
-                        fontFamily: AppTextStyles.fontFamily,
-                        fontWeight: FontWeight.w400,
+                      style: AppTextStyles.weightFour(
+                        color: AppColors.orTextColor,
+                        fontSize: 13.sp,
+                        context: context
                       ),
                     ),
                   ),
@@ -174,17 +158,17 @@ class SignUpPage extends GetView<SignUpController> {
                     child: Divider(
                       height: 20.h,
                       thickness: 0.5,
-                      color: AppColors.borderHintColor,
+                      color:Color(0xffE1E1E1),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: 20.h,
+                height: 31.h,
               ),
               GestureDetector(
                 onTap: () {
-                  //Handle Funtionality here
+
                 },
                 child: Container(
                   height: 40.h,
@@ -204,12 +188,9 @@ class SignUpPage extends GetView<SignUpController> {
                       ),
                       Text(
                         AppTexts.continueWithGoogleText,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          fontWeight: FontWeight.w400,
-                          height: 0.07.h,
+                        style: AppTextStyles.weightFour(
+                          fontSize: 12.sp,
+                          context: context
                         ),
                       ),
                     ],
@@ -217,7 +198,7 @@ class SignUpPage extends GetView<SignUpController> {
                 ),
               ),
               SizedBox(
-                height: 15.h,
+                height: 14.h,
               ),
               GestureDetector(
                 onTap: () {
@@ -241,11 +222,9 @@ class SignUpPage extends GetView<SignUpController> {
                       ),
                       Text(
                         AppTexts.continueWithFacebookText,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          fontWeight: FontWeight.w400,
+                        style: AppTextStyles.weightFour(
+                          fontSize: 12.sp,
+                          context: context
                         ),
                       ),
                     ],
@@ -259,13 +238,9 @@ class SignUpPage extends GetView<SignUpController> {
                 child: Text.rich(TextSpan(children: [
                   TextSpan(
                     text: AppTexts.alreadyHaveAccountText,
-                    style: TextStyle(
-                      color: Colors.white,
+                    style: AppTextStyles.weightFour(
+                      context: context,
                       fontSize: 12.sp,
-                      fontFamily: AppTextStyles.fontFamily,
-                      fontWeight: FontWeight.w400,
-                      height: 0.10,
-                      letterSpacing: 0.24,
                     ),
                   ),
                   const TextSpan(text: ""),
@@ -275,12 +250,9 @@ class SignUpPage extends GetView<SignUpController> {
                       ..onTap = () {
                         Get.off(const SignInPage(), binding: SignInBinding());
                       },
-                    style: TextStyle(
-                      color: AppColors.whiteTextColor,
+                    style: AppTextStyles.weightSix(
+                      context: context,
                       fontSize: 14.sp,
-                      fontFamily: AppTextStyles.fontFamily,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 0.28,
                     ),
                   ),
                 ])),

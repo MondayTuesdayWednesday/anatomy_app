@@ -31,7 +31,7 @@ class LanguagesettigsView extends GetView<LanguagesettingsController> {
                 Text(
                   'Language Settings',
                   style: TextStyle(
-                    fontSize: 22.sp,
+                    fontSize: 20.sp,
                     fontFamily: AppTextStyles.fontFamily,
                     color:AppColors.themeColor,
                     fontWeight: FontWeight.w700,
@@ -45,7 +45,8 @@ class LanguagesettigsView extends GetView<LanguagesettingsController> {
               child:  Text(
                 'Please select your native language',
                 style: TextStyle(
-                  fontSize: 19.sp,
+                  height: 1.2.h,
+                  fontSize: 18.sp,
                   fontFamily: AppTextStyles.fontFamily,
                   color:AppColors.whiteTextColor,
                   fontWeight: FontWeight.w500,

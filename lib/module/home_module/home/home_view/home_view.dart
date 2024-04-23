@@ -24,11 +24,11 @@ class HomePageView extends GetView<HomeViewController> {
             SizedBox(height: 45.h,),
             Text("Welcome",style: TextStyle(
               color: AppColors.themeColor,
-              fontSize: 14.sp,
+              fontSize: 20.sp,
               fontWeight: FontWeight.w700,
               fontFamily: AppTextStyles.fontFamily
             ),),
-            SizedBox(height: 8.h,),
+            SizedBox(height: 3.h,),
             Text("Dr. John Murphy",
             style: TextStyle(
               color: AppColors.whiteTextColor,
@@ -36,47 +36,48 @@ class HomePageView extends GetView<HomeViewController> {
               fontWeight: FontWeight.w700,
               fontSize: 18.sp
             ),),
-            SizedBox(height: 10.h,),
-            SizedBox(
-              width: 324.w,
-              child: Row(
-                children: [
-                  GestureDetector(
-                      onTap: controller.zoomDrawerController.toggle,
-                      child: Icon(Icons.sort,color: AppColors.whiteTextColor,size: 24.h,)),
-                  SizedBox(width: 10.w,),
-                  Container(
-                    height: 37.h,
-                    width: 270.w,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(color: AppColors.whiteTextColor,width: 0.5),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color(0x3F000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 1),
-                          spreadRadius: 0,
-                        )
-                      ]
-                    ),
+            SizedBox(height: 25.h,),
+            Row(
+              children: [
+                GestureDetector(
+                    onTap: controller.zoomDrawerController.toggle,
+                    child: Icon(Icons.sort_sharp,color: AppColors.whiteTextColor,size: 24.h,)),
+                SizedBox(width: 15.w,),
+                Container(
+                  height: 37.h,
+                  width: 265.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(color: AppColors.whiteTextColor,width: 0.5),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color(0x3F000000),
+                        blurRadius: 4,
+                        offset: Offset(0, 1),
+                        spreadRadius: 0,
+                      )
+                    ]
+                  ),
+                  child: Padding(
+                    padding:  EdgeInsets.symmetric(vertical: 5.h),
                     child: TextFormField(
                       decoration: InputDecoration(
+                        border: InputBorder.none,
                         prefixIcon: const Icon(Icons.search,size: 20,color: AppColors.searchIconColor,),
                         hintText:  'Search here...',
                         hintStyle: TextStyle(
-                          fontSize: 10.sp,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           fontFamily: AppTextStyles.fontFamily,
                           color: AppColors.searchIconColor
                         )
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
-            SizedBox(height: 30.h,),
+            SizedBox(height: 25.h,),
             Text(
               'Select Model',
               style: TextStyle(
@@ -86,13 +87,14 @@ class HomePageView extends GetView<HomeViewController> {
                 fontWeight: FontWeight.w700,
               ),
             ),
+
             Expanded(child: GridView.builder(
               itemCount: controller.imageList.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 0.57,
-                crossAxisSpacing: 40,
-                mainAxisSpacing: 12
+              childAspectRatio: 0.6,
+                crossAxisSpacing: 55,
+
             ), itemBuilder:(context, index) {
               return Column(
                 children: [

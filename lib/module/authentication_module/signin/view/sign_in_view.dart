@@ -16,28 +16,24 @@ import '../../signup/view/sign_up_view.dart';
 import '../../signup/widgets/my_textform_field.dart';
 import '../../widgets/auth_btn.dart';
 import '../controller/sign_in_controller.dart';
-
 class SignInPage extends GetView<SignInController> {
   const SignInPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgThemeColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only( top: 80.h,left: 25.w, right: 25.w),
+          padding: EdgeInsets.only( top: 90.h,left: 26.w, right: 26.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
                 child: Text(
                   AppTexts.welcomeBackText,
-                  style: TextStyle(
-                    color: AppColors.whiteTextColor,
-                    fontSize: 24.sp,
-                    fontFamily: AppTextStyles.fontFamily,
-                    fontWeight: FontWeight.w800,
+                  style: AppTextStyles.weightEight(
+                    context: context,
+                    fontSize: 20.sp,
                   ),
                 ),
               ),
@@ -46,52 +42,47 @@ class SignInPage extends GetView<SignInController> {
               ),
                Center(
                 child: SizedBox(
-                  width: 225,
+                  width: 225.w,
                   child: Text(
                     AppTexts.staySignedText,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
+                    style: AppTextStyles.weightFour(
                       fontSize: 12.sp,
-                      fontFamily: AppTextStyles.fontFamily,
-                      fontWeight: FontWeight.w400,
+                      context: context,
+                      height: 1.3.h
                     ),
                   ),
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 25.h,
               ),
               Text(
                 AppTexts.emailText,
-                style: TextStyle(
-                  color: AppColors.whiteTextColor,
-                  fontSize: 14.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  fontWeight: FontWeight.w400,
+                style: AppTextStyles.weightFour(
+                  fontSize: 12.sp,
+                  context: context,
                 ),
               ),
               SizedBox(
-                height: 7.h,
+                height: 10.h,
               ),
               MyTextFormField(
                 controller: controller.emailController,
                 text: AppTexts.enterEmailText,
               ),
               SizedBox(
-                height: 10.h,
+                height: 17.h,
               ),
               Text(
                 AppTexts.passwordText,
-                style: TextStyle(
-                  color: AppColors.whiteTextColor,
-                  fontSize: 14.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  fontWeight: FontWeight.w400,
+                style: AppTextStyles.weightFour(
+                  fontSize: 12.sp,
+                  context: context,
                 ),
               ),
               SizedBox(
-                height: 7.h,
+                height: 10.h,
               ),
               Obx(() {
                 return MyTextFormField(
@@ -128,7 +119,7 @@ class SignInPage extends GetView<SignInController> {
                 ),
                 Text(
                   AppTexts.keepMeSignedText,
-                  style: TextStyle(color: AppColors.borderHintColor),
+                  style: AppTextStyles.weightFour(color: AppColors.borderHintColor,fontSize: 11.sp,context: context),
                 ),
                 const Spacer(),
                 GestureDetector(
@@ -136,14 +127,15 @@ class SignInPage extends GetView<SignInController> {
                     Get.off(const ForgotPasswordPage(),
                         binding: ForgotPasswordBinding());
                   },
-                  child: const Text(
+                  child:  Text(
                     AppTexts.forgotPasswordText,
-                    style: TextStyle(color: AppColors.whiteTextColor),
+                    style: AppTextStyles.weightFour(context: context,
+                    fontSize: 10.sp),
                   ),
                 ),
               ]),
               SizedBox(
-                height: 20.h,
+                height: 25.h,
               ),
               GestureDetector(
                   onTap: () {
@@ -158,7 +150,7 @@ class SignInPage extends GetView<SignInController> {
                     btnHeight: 45.h,
                   )),
               SizedBox(
-                height: 20.h,
+                height: 27.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,15 +163,14 @@ class SignInPage extends GetView<SignInController> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.h),
+                    padding: EdgeInsets.symmetric(horizontal: 15.h),
                     child: Text(
                       AppTexts.orText,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: AppColors.borderHintColor,
-                        fontSize: 16.sp,
-                        fontFamily: AppTextStyles.fontFamily,
-                        fontWeight: FontWeight.w400,
+                      style: AppTextStyles.weightFour(
+                          color: AppColors.orTextColor,
+                          fontSize: 13.sp,
+                          context: context
                       ),
                     ),
                   ),
@@ -193,7 +184,7 @@ class SignInPage extends GetView<SignInController> {
                 ],
               ),
               SizedBox(
-                height: 20.h,
+                height: 27.h,
               ),
               GestureDetector(
                 onTap: () {
@@ -219,7 +210,7 @@ class SignInPage extends GetView<SignInController> {
                         AppTexts.continueWithGoogleText,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 14.sp,
+                          fontSize: 12.sp,
                           fontFamily: AppTextStyles.fontFamily,
                           fontWeight: FontWeight.w400,
                         ),
@@ -229,7 +220,7 @@ class SignInPage extends GetView<SignInController> {
                 ),
               ),
               SizedBox(
-                height: 10.h,
+                height: 14.h,
               ),
               GestureDetector(
                 onTap: () {
@@ -255,7 +246,7 @@ class SignInPage extends GetView<SignInController> {
                         AppTexts.continueWithFacebookText,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 14.sp,
+                          fontSize: 12.sp,
                           fontFamily: AppTextStyles.fontFamily,
                           fontWeight: FontWeight.w400,
                         ),
@@ -265,7 +256,7 @@ class SignInPage extends GetView<SignInController> {
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 25.h,
               ),
               Center(
                 child: Text.rich(TextSpan(children: [

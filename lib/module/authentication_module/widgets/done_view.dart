@@ -2,11 +2,8 @@ import 'package:anatomy/common/app_colors.dart';
 import 'package:anatomy/common/app_text_styles.dart';
 import 'package:anatomy/module/authentication_module/widgets/auth_btn.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../common/app_texts.dart';
-
 class DoneView extends StatelessWidget {
   final String titleText;
   final String subTitle;
@@ -20,7 +17,6 @@ class DoneView extends StatelessWidget {
       required this.subTitle,
       required this.descriptionText,
       required this.onPressed});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +25,16 @@ class DoneView extends StatelessWidget {
         padding:
             EdgeInsets.only(top: 90.h, left: 35.w, right: 35.w, bottom: 50.h),
         child: Column(children: [
-          Text(
-            titleText,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: AppColors.whiteTextColor,
-              fontSize: 24.sp,
-              fontFamily: AppTextStyles.fontFamily,
-              fontWeight: FontWeight.w800,
+          SizedBox(
+            width: 200.w,
+            child: Text(
+              titleText,
+              textAlign: TextAlign.center,
+              style: AppTextStyles.weightEight(
+                height: 1.3.h,
+               context: context,
+                fontSize: 21.sp,
+              ),
             ),
           ),
           SizedBox(
@@ -59,7 +57,7 @@ class DoneView extends StatelessWidget {
             height: 50.h,
           ),
           Container(
-            height: 150.h,
+            height: 140.h,
             decoration: BoxDecoration(
               border: Border.all(width: 2, color: AppColors.whiteTextColor),
               shape: BoxShape.circle,
@@ -68,7 +66,7 @@ class DoneView extends StatelessWidget {
               child: Icon(
                 Icons.done,
                 color: AppColors.themeColor,
-                size: 150,
+                size: 130,
               ),
             ),
           ),
@@ -76,27 +74,23 @@ class DoneView extends StatelessWidget {
             height: 40.h,
           ),
           SizedBox(
-            width: 300,
+            width: 300.w,
             child: Text(
               descriptionText,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 14.sp,
+                fontSize: 12.sp,
                 fontFamily: AppTextStyles.fontFamily,
                 fontWeight: FontWeight.w400,
               ),
             ),
           ),
-          Expanded(
-            child: SizedBox(
-              height: 20.h,
-            ),
-          ),
+         Spacer(),
           GestureDetector(
             onTap: () => onPressed(),
             child: AuthBtn(
-              fontSize: 14.sp,
+              fontSize: 13.sp,
                 btnText: buttonText??AppTexts.nextText,
                 btnColor: AppColors.btnGreyColor,
                 btnBorderRadius: 8,

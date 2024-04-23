@@ -1,14 +1,32 @@
+import 'package:anatomy/module/home_module/Widgets/home_drawer.dart';
+import 'package:anatomy/module/home_module/home/binding/home_view_binding.dart';
+import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
+import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'package:anatomy/module/slpash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import 'common/app_colors.dart';
+import 'common/app_theme.dart';
+import 'module/profile_module/appearance/controller/appearance_controller.dart';
 
-void main() => runApp(const MyApp());
 
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: AppColors.transparentColor,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: AppColors.transparentColor,
+      systemNavigationBarIconBrightness: Brightness.dark,
+    ),
+  );
+  runApp(MyApp());
+}
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  final AppearanceController controller = Get.put(AppearanceController(),);
+   MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -17,9 +35,15 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return GetMaterialApp(
+          themeMode: ThemeMode.light,
           debugShowCheckedModeBanner: false,
-          home:  SplashScreen(),
-          // initialBinding: PrivacypolicyBinding(),
+          defaultTransition: Transition.leftToRight,
+          title: 'Flutter Demo',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          home: const HomePageDrawer(),
+          initialBinding: HomeBinding(),
+
         );
       },
     );

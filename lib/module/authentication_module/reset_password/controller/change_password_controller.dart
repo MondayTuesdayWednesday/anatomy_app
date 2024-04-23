@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class ChangePasswordController extends GetxController{
+class ResetPasswordController extends GetxController{
 
   RxBool isPasswordVisible = false.obs;
   RxBool isCodeVisible = false.obs;

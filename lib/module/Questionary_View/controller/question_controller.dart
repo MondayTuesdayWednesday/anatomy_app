@@ -3,12 +3,10 @@ import '../../../common/app_assets.dart';
 import '../question_done/questionary_done_view.dart';
 
 class QuestionController extends GetxController {
-  var topicIndex = 0.obs; // current topic index
-  var selectedOption = ''.obs; // selected option
+  var topicIndex = 0.obs;
+  var selectedOption = ''.obs;
   var answeredCount = 0.obs;
-  var isOptionSelected = false.obs; // Track if an option is selected
-
-  // List of topics
+  var isOptionSelected = false.obs;
   final List<String> topics = [
     'What are you studying?',
     'Tell us your interests',
@@ -16,30 +14,18 @@ class QuestionController extends GetxController {
     'What are you studying?',
     'Tell us your interests',
     'When are you due to graduate?',
-    // Add more topics as needed
-  ];
 
-  // List of options for each topic
-  final List<List<String>> options = [
-    ['Medicine', 'Physical therapy', 'Nursing', 'Dentistry'],
-    ['Medicine2', 'Physical therapy', 'Nursing', 'Dentistry'],
-    ['Medicine3', 'Physical therapy', 'Nursing', 'Dentistry'],
-    ['Medicine4', 'Physical therapy', 'Nursing', 'Dentistry'],
-    ['Medicine5', 'Physical therapy', 'Nursing', 'Dentistry'],
-    ['Medicine6', 'Physical therapy', 'Nursing', 'Dentistry'],
-    // Add more options lists as needed
   ];
-
-  // List of background images
-  final List<String> backgroundImages = [
-    AppAssets.question1bg, AppAssets.question2bg, AppAssets.question3bg,
-    AppAssets.question4bg, AppAssets.question5bg, AppAssets.question6bg,
-    // Add more images as needed
+  List<GridItem> options = [
+    GridItem(answer: 'Nursing', imagePath: 'assets/icons/healthicons_nurse.svg'),
+    GridItem(answer: 'Medicine', imagePath: 'assets/icons/kapcool.svg'),
+    GridItem(answer: 'Physical therapy', imagePath: 'assets/icons/mans.svg'),
+    GridItem(answer: 'Dentistry', imagePath: 'assets/icons/teeth.svg')
   ];
-
   void selectOption(String option) {
     selectedOption.value = option;
     isOptionSelected.value = true;
+    print("object");
   }
 
   void goToPreviousTopic() {
@@ -47,18 +33,10 @@ class QuestionController extends GetxController {
       topicIndex.value--;
       selectedOption.value = '';
       isOptionSelected.value = false;
-
-      // Decrement answeredCount if it's greater than 0
       if (answeredCount.value > 0) {
         answeredCount.value--;
       }
     }
-  }
-
-  String formatAnsweredCount() {
-    String count = answeredCount.value.toString().padLeft(2, '0') ;
-    String total = topics.length.toString().padLeft(2, '0');
-    return '$count  / $total';
   }
 
   void nextTopic() {
@@ -79,4 +57,11 @@ class QuestionController extends GetxController {
   double calculateProgress() {
     return (answeredCount.value) / topics.length;
   }
+
+}
+class GridItem {
+  final String answer;
+  final String imagePath;
+
+  GridItem({required this.answer, required this.imagePath});
 }

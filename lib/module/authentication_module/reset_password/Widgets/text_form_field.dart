@@ -7,10 +7,10 @@ import '../../../../common/app_text_styles.dart';
 class PasswordTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? text;
-  final Widget? prefixIcon;
+  final IconData? prefixIcon;
   final Widget? suffixIcon;
   final bool obscureText;
-  final int? maxLine;
+
 
   const PasswordTextField(
       {super.key,
@@ -19,18 +19,19 @@ class PasswordTextField extends StatelessWidget {
       this.obscureText = false,
       this.suffixIcon,
       this.prefixIcon,
-      this.maxLine});
+      });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topLeft,
       height: 40.h,
-      decoration: const BoxDecoration(
-          //decoration
+      decoration:  BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: AppColors.borderHintColor, width: 0.7),
           ),
       child: TextFormField(
-        maxLines: maxLine,
+
         // textAlign: TextAlign.center,
         cursorColor: AppColors.whiteTextColor,
         style: TextStyle(color: AppColors.blackTextColor, fontSize: 14.sp),
@@ -40,12 +41,12 @@ class PasswordTextField extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(
             left: 10.w,
-            bottom: 5.h,
-            top: 10.h,
+            bottom: 15.h,
+            top: 15.h,
           ),
           border: InputBorder.none,
           suffixIcon: suffixIcon,
-          prefixIcon: prefixIcon,
+          prefixIcon: Icon(prefixIcon,size: 20,color: AppColors.whiteTextColor,),
           hintText: text,
           hintStyle: TextStyle(
             fontSize: 12.sp,

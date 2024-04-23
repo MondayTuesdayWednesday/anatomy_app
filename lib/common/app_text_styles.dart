@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'app_colors.dart';
-
 class AppTextStyles {
   static const fontFamily = "Nunito Sans";
 
@@ -15,7 +13,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color: AppColors.whiteTextColor,
+      color:color??AppColors.whiteTextColor,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
@@ -33,7 +31,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color: AppColors.whiteTextColor,
+      color:color??AppColors.whiteTextColor,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
@@ -51,7 +49,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color: AppColors.whiteTextColor,
+      color:color??AppColors.whiteTextColor,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
@@ -69,7 +67,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color: color,
+      color:color??AppColors.whiteTextColor,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
@@ -87,7 +85,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color: AppColors.whiteTextColor,
+      color:color??AppColors.whiteTextColor,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,

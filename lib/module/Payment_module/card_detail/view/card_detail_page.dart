@@ -1,6 +1,5 @@
 import 'package:anatomy/common/app_colors.dart';
 import 'package:anatomy/module/Payment_module/card_detail/controller/card_detail_controller.dart';
-import 'package:anatomy/module/Payment_module/payment_method/widget/custom_text_field.dart';
 import 'package:anatomy/module/Payment_module/welcome/payment_done_view.dart';
 import 'package:anatomy/module/authentication_module/widgets/auth_btn.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,15 +9,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/app_text_styles.dart';
+import '../widget/custom_text_field.dart';
 
 class CardDetailPage extends GetView<CardDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgThemeColor,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 27.w),
-        child: Center(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(left: 27.w,right: 27.w,bottom: 40.h),
           child: Column(
             children: [
               SizedBox(
@@ -26,14 +26,12 @@ class CardDetailPage extends GetView<CardDetailController> {
               ),
               Text(
                 "Card Detail",
-                style: TextStyle(
-                    color: AppColors.whiteTextColor,
-                    fontFamily: AppTextStyles.fontFamily,
-                    fontWeight: FontWeight.w800,
+                style: AppTextStyles.weightEight(
+                  context: context,
                     fontSize: 22.sp),
               ),
               SizedBox(
-                height: 25.h,
+                height: 30.h,
               ),
               CustomTextField(
                 keyboardType: TextInputType.name,
@@ -59,9 +57,7 @@ class CardDetailPage extends GetView<CardDetailController> {
                 text: "CVV",
                 hintText: "xxxxx",
               ),
-              SizedBox(
-                height: 50.h,
-              ),
+              SizedBox(height: 120.w,),
               GestureDetector(
                 onTap: (){
                   Get.off(PaymentDoneView());

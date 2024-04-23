@@ -1,6 +1,4 @@
 import 'package:anatomy/common/app_assets.dart';
-import 'package:anatomy/module/authentication_module/change_password/binding/change_password_binding.dart';
-import 'package:anatomy/module/authentication_module/change_password/view/change_password_page.dart';
 import 'package:anatomy/module/authentication_module/signin/binding/sign_in_binding.dart';
 import 'package:anatomy/module/authentication_module/signin/view/sign_in_view.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +9,9 @@ import 'package:get/get.dart';
 import '../../../../common/app_colors.dart';
 import '../../../../common/app_text_styles.dart';
 import '../../../../common/app_texts.dart';
+import '../../reset_password/Widgets/text_form_field.dart';
+import '../../reset_password/binding/change_password_binding.dart';
+import '../../reset_password/view/change_password_page.dart';
 import '../../signup/widgets/my_textform_field.dart';
 import '../../widgets/auth_btn.dart';
 import '../controller/forgot_password_controller.dart';
@@ -25,34 +26,38 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
       backgroundColor: AppColors.bgThemeColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only( top: 80.h,left: 25.w, right: 25.w),
+          padding: EdgeInsets.only( top: 70.h,left: 25.w, right: 25.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
 
             children: [
 
-              SvgPicture.asset(AppAssets.forgetPageIcon),
+              SvgPicture.asset(AppAssets.forgetPageIcon,
+              height: 150.h,),
+              SizedBox(
+                height: 20.h,
+              ),
               Text(
                 AppTexts.forgetPasswordText,
                 style: TextStyle(
                   color: AppColors.whiteTextColor,
-                  fontSize: 24.sp,
+                  fontSize: 20.sp,
                   fontFamily: AppTextStyles.fontFamily,
                   fontWeight: FontWeight.w800,
                 ),
               ),
               SizedBox(
-                height: 12.h,
+                height: 7.h,
               ),
               Center(
                 child: SizedBox(
-                  width: 210,
+                  width: 180.w,
                   child: Text(
                     AppTexts.staySignedText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 12.sp,
+                      fontSize: 11.sp,
                       fontFamily: AppTextStyles.fontFamily,
                       fontWeight: FontWeight.w400,
                     ),
@@ -60,24 +65,22 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 23.h,
               ),
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(
                   AppTexts.emailText,
-                  style: TextStyle(
-                    color: AppColors.whiteTextColor,
-                    fontSize: 14.sp,
-                    fontFamily: AppTextStyles.fontFamily,
-                    fontWeight: FontWeight.w400,
+                  style: AppTextStyles.weightFour(
+                    fontSize: 12.sp,
+                    context: context,
                   ),
                 ),
               ),
               SizedBox(
-                height: 7.h,
+                height: 12.h,
               ),
-              MyTextFormField(
+              PasswordTextField(
                 controller: controller.emailController,
                 text: AppTexts.enterEmailText,
                 prefixIcon: Icons.mail_outline ,
@@ -86,11 +89,11 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
 
 
               SizedBox(
-                height: 160.h,
+                height: 150.h,
               ),
               GestureDetector(
                   onTap: () {
-                    Get.off(ChangePasswordPage() , binding: ChangePasswordBinding());
+                    Get.off(ResetPasswordPage() , binding: ResetPasswordBinding());
                   },
                   child: AuthBtn(
                     btnText: AppTexts.sendEmailText,
@@ -98,10 +101,10 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                     btnBorderRadius: 8,
                     textColor: AppColors.whiteTextColor,
                     btnHeight: 45.h,
-                    fontSize: 14.sp,
+                    fontSize: 13.sp,
                   )),
               SizedBox(
-                height: 20.h,
+                height: 15.h,
               ),
 
               GestureDetector(
@@ -110,11 +113,10 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                 },
                 child: Text(
                   AppTexts.backToLoginText,
-                  style: TextStyle(
-                    color: AppColors.whiteTextColor,
-                    fontSize: 14.sp,
-                    fontFamily: AppTextStyles.fontFamily,
-                    fontWeight: FontWeight.w400,
+                  style: AppTextStyles.weightFour(
+                    context: context,
+                    fontSize: 13.sp,
+
                   ),
                 ),
               ),

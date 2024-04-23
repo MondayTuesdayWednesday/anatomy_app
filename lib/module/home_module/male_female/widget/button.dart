@@ -16,23 +16,22 @@ class Button extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 44.h,
-            height: 44.w,
+            width: 40.h,
+            height: 40.w,
             decoration: ShapeDecoration(
               color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(22),
+              shape: CircleBorder(
               ),
               shadows: [
                 BoxShadow(
-                  color: Color(0xA3000000).withOpacity(0.1),
+                  color: const Color(0xA3000000).withOpacity(0.1),
                   blurRadius: 12,
                   offset: Offset(3, 4),
                   spreadRadius: 0,
                 )
               ],
             ),
-            child: SvgPicture.asset(image!,fit: BoxFit.scaleDown,),
+            child: SvgPicture.asset(image!,fit: BoxFit.scaleDown,height: 20.h,),
           ),
           SizedBox(height: 5.h,),
           SizedBox(
@@ -41,7 +40,7 @@ class Button extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
               color: AppColors.whiteTextColor,
-              fontSize: 11.sp,
+              fontSize: 9.5.sp,
               fontWeight: FontWeight.w400,
               fontFamily: AppTextStyles.fontFamily
             ),),

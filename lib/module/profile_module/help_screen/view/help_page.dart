@@ -3,6 +3,7 @@ import 'package:anatomy/common/app_colors.dart';
 import 'package:anatomy/common/app_text_styles.dart';
 import 'package:anatomy/module/profile_module/help_screen/controller/help_page_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -31,7 +32,10 @@ class HelpPage extends GetView<HelpPageController> {
                  Get.back();
                },
 
-            child:   SvgPicture.asset(AppAssets.arrowBack),),
+            child:   Padding(
+              padding:  EdgeInsets.only(left: 4.w),
+              child: SvgPicture.asset(AppAssets.arrowBack),
+            ),),
                     Text(
                       AppTexts.helptext,
                       style:TextStyle(
@@ -45,8 +49,8 @@ class HelpPage extends GetView<HelpPageController> {
 
            ),
            SizedBox(height:30.h,),
-           SizedBox(
-             height:500.h,
+           Expanded(
+
 
              child:  ListView.builder(
                itemCount: controller.showAnswer.length,
@@ -61,7 +65,7 @@ class HelpPage extends GetView<HelpPageController> {
                            controller.toggleAnswer(index);
                          },
                          child: Container(
-                           height: 48.h,
+                           height: 45.h,
                            width: 310.w,
                            decoration: BoxDecoration(
                              borderRadius: BorderRadius.circular(12),
@@ -77,9 +81,9 @@ class HelpPage extends GetView<HelpPageController> {
                                children: [
 
                                  Text(
-                                    '${AppTexts.questiontext}${index + 1}',
+                                    '${AppTexts.questiontext}  ${index + 1}',
                                    style: TextStyle(
-                                     fontSize: 14.sp,
+                                     fontSize: 13.sp,
                                      fontFamily: AppTextStyles.fontFamily,
                                      color: AppColors.whiteTextColor,
                                      fontWeight: FontWeight.w400,
@@ -99,9 +103,9 @@ class HelpPage extends GetView<HelpPageController> {
                      ),
                      if (controller.showAnswer[index])
                        Padding(
-                         padding:  EdgeInsets.only(bottom: 15.h),
+                         padding:  EdgeInsets.only(bottom: 15.h,left: 15.w),
                          child: SizedBox(
-                           width: 300.w,
+                           width: 285.w,
                            child:  Text(
                              AppTexts.dummytext,
                              style: TextStyle(

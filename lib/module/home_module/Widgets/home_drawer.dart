@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import '../../../common/app_colors.dart';
@@ -15,6 +16,9 @@ class HomePageDrawer extends GetView<HomeViewController> {
       backgroundColor:AppColors.bgThemeColor,
       body: GetBuilder<HomeViewController>(
         builder: (_) =>  ZoomDrawer(
+          clipMainScreen: false,
+          closeCurve: Curves.easeIn,
+          style: DrawerStyle.defaultStyle,
           controller: controller.zoomDrawerController,
           menuScreen: const HomeDrawerMenuScreen(),
           mainScreen: const HomePageView(),
@@ -31,7 +35,7 @@ class HomePageDrawer extends GetView<HomeViewController> {
           angle: 0.0,
             shadowLayer1Color: const Color(0xff435053),
             shadowLayer2Color: const Color(0xff3F494B).withOpacity(0.96),
-          slideWidth: MediaQuery.of(context).size.width * 0.65,
+          slideWidth: MediaQuery.of(context).size.width * 0.68,
         )
 
       ),

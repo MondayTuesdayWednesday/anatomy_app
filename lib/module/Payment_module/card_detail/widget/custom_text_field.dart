@@ -16,15 +16,13 @@ class CustomTextField extends StatelessWidget{
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(text??"",
-      style: TextStyle(
-        color: AppColors.whiteTextColor,
-        fontSize: 13.sp,
-        fontWeight: FontWeight.w400,
-        fontFamily: AppTextStyles.fontFamily
+      style: AppTextStyles.weightFour(
+        context: context,
+        fontSize: 12.sp,
       ),),
       SizedBox(height: 12.h,),
       Container(
-        height: 45.h,
+        height: 43.h,
         decoration: BoxDecoration(
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(8),
@@ -34,7 +32,7 @@ class CustomTextField extends StatelessWidget{
           keyboardType: keyboardType,
           controller: controller,
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(left: 25.w,),
+            contentPadding: EdgeInsets.only(left: 25.w,bottom: 15.h,top: 15.h),
             border: InputBorder.none,
             hintText: hintText,
             hintStyle: TextStyle(
@@ -46,7 +44,7 @@ class CustomTextField extends StatelessWidget{
           ),
         ),
       ),
-      SizedBox(height: 15.h,),
+      SizedBox(height: 20.h,),
     ],
   );
   }

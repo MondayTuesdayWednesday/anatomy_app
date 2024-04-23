@@ -71,7 +71,7 @@ class PaymentView extends GetView<PaymentController> {
                   itemCount: controller.iconList.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
-                      padding:  EdgeInsets.only(bottom: 10.h),
+                      padding:  EdgeInsets.only(bottom: 15.h),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

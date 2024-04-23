@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  static const transparentColor=Colors.transparent;
   static const bgThemeColor = Color(0xFF1C2325);
   static const searchIconColor = Color(0xFFD3D3D3);
   static const blackTextColor = Colors.black;
@@ -15,4 +16,6 @@ class AppColors {
   static final opacityGreyColor = const Color(0xFF636C71).withOpacity(0.6);
   static final opacityWhiteColor = const Color(0xFF636C71).withOpacity(0.9);
   static const lightBlackColor = Color(0xff9A9A9A);
+  static const orTextColor=Color(0xffABB3BB);
+  static const containerGradientColor=Color(0xff999999);
 }

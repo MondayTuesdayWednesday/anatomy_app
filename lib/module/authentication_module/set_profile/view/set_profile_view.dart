@@ -24,15 +24,14 @@ class SetProfileImagePage extends GetView<SetProfileController> {
         child: Column(
           children: [
             SizedBox(
-              width: 200.w,
+              width: 250.w,
               child: Text(
                 AppTexts.chooseProfileText,
                 textAlign: TextAlign.center,
                 style: AppTextStyles.weightEight(
                   context: context,
-                  color: AppColors.themeColor,
-                  fontSize: 20.sp,
-                  height: 1.h,
+                  height: 1.3.h,
+                  fontSize: 18.sp,
 
                 ),
               ),
@@ -66,15 +65,15 @@ class SetProfileImagePage extends GetView<SetProfileController> {
 
               Positioned(
                 bottom: 5.h,
-                right: 70.w,
+                right: 80.w,
 
                 child: InkWell(
                   onTap: () {
                     controller.getImage();
                   },
                   child: Container(
-                    height: 50.h,
-                    width: 50.w,
+                    height: 45.h,
+                    width: 45.w,
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.circle,
@@ -90,7 +89,7 @@ class SetProfileImagePage extends GetView<SetProfileController> {
                     child:  Center(
                       child: Icon(
                         Icons.camera_alt_rounded,
-                        size: 21.h,
+                        size: 22.h,
                         color: AppColors.bgThemeColor,
                       ),
                     ),
@@ -100,13 +99,14 @@ class SetProfileImagePage extends GetView<SetProfileController> {
 
             ]),
              SizedBox(
-              height: 130.h,
+              height: 150.h,
             ),
             GestureDetector(
               onTap: () {
                 Get.off( const SignUpPage(), binding: SignUpBinding());
               },
               child: AuthBtn(
+                fontSize: 13.sp,
                 btnText: AppTexts.createAccountText,
                 btnColor: AppColors.btnGreyColor,
                 btnBorderRadius: 8,

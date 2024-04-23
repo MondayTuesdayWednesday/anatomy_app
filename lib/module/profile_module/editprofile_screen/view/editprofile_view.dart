@@ -44,15 +44,15 @@ class EditProfileView extends GetView<EditprofileController> {
            SizedBox(height:15.h,),
            Center(
              child:SizedBox(
-               height: 90,
-               width: 120,
+               height: 85.h,
+               width: 110.w,
                child: Stack(
                  children: [
                    Obx(
                          () => Center(
                        child: Container(
-                         width: 93.w,
-                         height: 93.h,
+                         width: 95.w,
+                         height: 95.h,
                          decoration: BoxDecoration(
                            shape: BoxShape.circle,
                            border: Border.all(
@@ -94,18 +94,18 @@ class EditProfileView extends GetView<EditprofileController> {
                ),
              ),
            ),
-       SizedBox(height: 18.h,),
+       SizedBox(height: 20.h,),
            Text(
              'Full name',
              style: TextStyle(
-               fontSize: 12.sp,
+               fontSize: 13.sp,
                fontFamily: AppTextStyles.fontFamily,
                color:AppColors.whiteTextColor,
                fontWeight: FontWeight.w400,
              ),),
-       SizedBox(height: 12.h,),
+       SizedBox(height: 10.h,),
        Container(
-         height: 48.h,
+         height: 43.h,
 
          decoration: BoxDecoration(
            borderRadius: BorderRadius.circular(12),
@@ -125,8 +125,8 @@ class EditProfileView extends GetView<EditprofileController> {
              contentPadding: EdgeInsets.only(left:19.w),
              hintText: 'Full Name',
              border: InputBorder.none,
-             hintStyle: const TextStyle(
-
+             hintStyle:  TextStyle(
+               fontSize: 10.sp,
                color: Colors.white54, // Setting hint text color to white with opacity
                fontFamily: AppTextStyles.fontFamily, // Setting font family for hint text
              ),
@@ -137,14 +137,14 @@ class EditProfileView extends GetView<EditprofileController> {
            Text(
              'Email',
              style: TextStyle(
-               fontSize: 12.sp,
+               fontSize: 13.sp,
                fontFamily: AppTextStyles.fontFamily,
                color:AppColors.whiteTextColor,
                fontWeight: FontWeight.w400,
              ),),
-           SizedBox(height: 12.h,),
+           SizedBox(height: 10.h,),
            Container(
-             height: 48.h,
+             height: 43.h,
              decoration: BoxDecoration(
                borderRadius: BorderRadius.circular(12),
                border: Border.all(
@@ -163,7 +163,8 @@ class EditProfileView extends GetView<EditprofileController> {
                  contentPadding: EdgeInsets.only(left:19.w),
                  hintText: 'Email',
                  border: InputBorder.none,
-                 hintStyle: const TextStyle(
+                 hintStyle:  TextStyle(
+                   fontSize: 10.sp,
                    color: Colors.white54, // Setting hint text color to white with opacity
                    fontFamily: AppTextStyles.fontFamily, // Setting font family for hint text
                  ),
@@ -174,14 +175,14 @@ class EditProfileView extends GetView<EditprofileController> {
            Text(
              'Location',
              style: TextStyle(
-               fontSize: 12.sp,
+               fontSize: 13.sp,
                fontFamily: AppTextStyles.fontFamily,
                color:AppColors.whiteTextColor,
                fontWeight: FontWeight.w400,
              ),),
-           SizedBox(height: 12.h,),
+           SizedBox(height: 10.h,),
            Container(
-             height: 48.h,
+             height: 43.h,
              decoration: BoxDecoration(
                borderRadius: BorderRadius.circular(12),
                border: Border.all(
@@ -200,7 +201,8 @@ class EditProfileView extends GetView<EditprofileController> {
                  contentPadding: EdgeInsets.only(left:19.w),
                  hintText: 'Location',
                  border: InputBorder.none,
-                 hintStyle: const TextStyle(
+                 hintStyle:  TextStyle(
+                   fontSize: 10.sp,
                    color: Colors.white54, // Setting hint text color to white with opacity
                    fontFamily: AppTextStyles.fontFamily, // Setting font family for hint text
                  ),
@@ -211,14 +213,14 @@ class EditProfileView extends GetView<EditprofileController> {
            Text(
              'Phone Number',
              style: TextStyle(
-               fontSize: 12.sp,
+               fontSize: 13.sp,
                fontFamily: AppTextStyles.fontFamily,
                color:AppColors.whiteTextColor,
                fontWeight: FontWeight.w400,
              ),),
-           SizedBox(height: 12.h,),
+           SizedBox(height: 10.h,),
            Container(
-             height: 48.h,
+             height: 43.h,
              decoration: BoxDecoration(
                borderRadius: BorderRadius.circular(12),
                border: Border.all(
@@ -238,16 +240,17 @@ class EditProfileView extends GetView<EditprofileController> {
                  contentPadding: EdgeInsets.only(left:19.w),
                  hintText: '+91 0000',
                  border: InputBorder.none,
-                 hintStyle: const TextStyle(
+                 hintStyle:  TextStyle(
+                   fontSize: 10.sp,
                    color: Colors.white54, // Setting hint text color to white with opacity
                    fontFamily: AppTextStyles.fontFamily, // Setting font family for hint text
                  ),
                ),
              ),
            ),
-       SizedBox(height: 50.h,),
+       SizedBox(height: 85.h,),
        Container(
-         height: 52.h,
+         height: 47.h,
          width: 310.w,
          decoration: BoxDecoration(
            borderRadius: BorderRadius.circular(12),
