@@ -11,6 +11,7 @@ class AppearancePage extends GetView<AppearanceController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body:  Container(
           height: 690.h,
           width: 360.w,
@@ -36,7 +37,7 @@ class AppearancePage extends GetView<AppearanceController> {
                         Icons.arrow_back,
                         size: 25.h,
                         color:
-                            Theme.of(context).appBarTheme.titleTextStyle?.color,
+                           Theme.of(context).appBarTheme.backgroundColor,
                       ),
                     ),
                     SizedBox(
@@ -44,8 +45,9 @@ class AppearancePage extends GetView<AppearanceController> {
                       child: Text(
                         "Appearance",
                         style: AppTextStyles.weightSeven(
-                            fontSize: 20.sp, context: context),
+                            fontSize: 20.sp, context: context,color:   Theme.of(context).appBarTheme.backgroundColor,),
                         textAlign: TextAlign.center,
+
                       ),
                     ),
                     SizedBox(

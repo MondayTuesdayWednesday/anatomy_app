@@ -11,7 +11,7 @@ class TermConditionView extends GetView<TermandconditionController> {
   @override
   Widget build(BuildContext context) {
  return  Scaffold(
-   backgroundColor: AppColors.bgThemeColor,
+   backgroundColor: Theme.of(context).scaffoldBackgroundColor,
    body: Padding(
      padding:  EdgeInsets.symmetric(horizontal: 20.w),
      child: Column(
@@ -24,14 +24,14 @@ class TermConditionView extends GetView<TermandconditionController> {
                onTap: () {
                  Get.back();
                },
-                 child: SvgPicture.asset(AppAssets.arrowBack)),
+                 child: SvgPicture.asset(AppAssets.arrowBack,
+                 color: Theme.of(context).appBarTheme.backgroundColor,)),
              Text(
                'Term and Conditions',
-               style: TextStyle(
-                 fontSize: 22.sp,
-                 fontFamily: AppTextStyles.fontFamily,
-                 color:AppColors.themeColor,
-                 fontWeight: FontWeight.w700,
+               style: AppTextStyles.weightSeven(
+                 context: context,
+                 fontSize: 20.sp,
+                color: Theme.of(context).appBarTheme.backgroundColor
                ),),
              SizedBox(width:7.w),
            ],
@@ -44,23 +44,17 @@ class TermConditionView extends GetView<TermandconditionController> {
            children: [
            TextSpan(
            text: 'Lorem Ipsum',
-           style: TextStyle(
-             color: Colors.white,
+           style: AppTextStyles.weightSeven(context:context,
              fontSize: 12.sp,
-             fontFamily: AppTextStyles.fontFamily,
-             fontWeight: FontWeight.w700,
-
            ),
          ),
          TextSpan(
            text: " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s.\nThe release of Letraset sheets containing Lorem Ipsum.",
-         style: TextStyle(
-           color: Colors.white,
+         style: AppTextStyles.weightFour(
+           context:context,
            fontSize: 12.sp,
-           fontFamily: AppTextStyles.fontFamily,
-           fontWeight: FontWeight.w400,
+           height: 1.3.h,
 
-           letterSpacing: 1,
          ),
        ),
        ],
@@ -76,23 +70,20 @@ class TermConditionView extends GetView<TermandconditionController> {
                children: [
                  TextSpan(
                    text: 'Lorem Ipsum',
-                   style: TextStyle(
-                     color: Colors.white,
+                   style: AppTextStyles.weightFour(
+                     context:context,
                      fontSize: 12.sp,
-                     fontFamily: AppTextStyles.fontFamily,
-                     fontWeight: FontWeight.w700,
+                     height: 1.3.h,
 
                    ),
                  ),
                  TextSpan(
                    text: " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s.\nThe release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                   style: TextStyle(
-                     color: Colors.white,
+                   style: AppTextStyles.weightFour(
+                     context:context,
                      fontSize: 12.sp,
-                     fontFamily: AppTextStyles.fontFamily,
-                     fontWeight: FontWeight.w400,
+                     height: 1.3.h,
 
-                     letterSpacing: 1,
                    ),
                  ),
                ],

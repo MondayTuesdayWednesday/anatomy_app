@@ -47,11 +47,21 @@ class PaymentSelectionBox extends GetView<PaymentController> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Radio(
-                  value: index,
-                  groupValue: controller.selectedRadioIndex.value,
-                  activeColor: AppColors.whiteTextColor,
-                  onChanged: (int? value) => controller.changeRadio(value!),
+                Theme(
+                  data: ThemeData(
+                    unselectedWidgetColor: Colors.red,
+                  ),
+                  child: Radio(
+                    fillColor:  MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+                      if (states.contains(MaterialState.disabled)) {
+                        return Colors.orange.withOpacity(.32);
+                      }
+                      return Theme.of(context).appBarTheme.surfaceTintColor??Colors.red;
+                    }),
+                    value: index,
+                    groupValue: controller.selectedRadioIndex.value,
+                    onChanged: (int? value) => controller.changeRadio(value!),
+                  ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,11 +71,9 @@ class PaymentSelectionBox extends GetView<PaymentController> {
                       children: [
                         Text(
                           "Life Time",
-                          style: TextStyle(
-                            color: AppColors.whiteTextColor,
-                            fontSize: 16.sp,
-                            fontFamily: AppTextStyles.fontFamily,
-                            fontWeight: FontWeight.w600,
+                          style: AppTextStyles.weightSix(
+                            context: context,
+                            fontSize: 16.sp
                           ),
                         ),
                         SizedBox(
@@ -73,11 +81,9 @@ class PaymentSelectionBox extends GetView<PaymentController> {
                         ),
                         Text(
                           "(Saving Offer)",
-                          style: TextStyle(
-                            color: AppColors.whiteTextColor,
-                            fontSize: 10.sp,
-                            fontFamily: AppTextStyles.fontFamily,
-                            fontWeight: FontWeight.w600,
+                          style: AppTextStyles.weightSix(
+                            context: context,
+                            fontSize: 10.sp
                           ),
                         ),
                       ],
@@ -89,11 +95,9 @@ class PaymentSelectionBox extends GetView<PaymentController> {
                       children: [
                         Text(
                           '\$29.99 per year, Lorem ipsum',
-                          style: TextStyle(
-                            color: AppColors.whiteTextColor,
+                          style: AppTextStyles.weightSix(
+                            context: context,
                             fontSize: 12.sp,
-                            fontFamily: AppTextStyles.fontFamily,
-                            fontWeight: FontWeight.w600,
                           ),
                         ),
 

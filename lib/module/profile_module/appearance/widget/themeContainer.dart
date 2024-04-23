@@ -1,3 +1,5 @@
+import 'package:anatomy/common/app_colors.dart';
+import 'package:anatomy/common/app_text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,24 +35,24 @@ class ThemeContainerWidget extends StatelessWidget {
                 Icon(
                   icon,
                   size: 24.h,
-                  color: Colors.white,
+                  color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                 ),
                 SizedBox(
                   width: 11.w,
                 ),
                 Text(
                   containerName,
-                  style: TextStyle(
-                      color: Colors.white,
+                  style: AppTextStyles.weightFour(
+                    context: context,
                       fontSize: 16.sp,
-                      fontWeight: FontWeight.w400),
+                  ),
                 ),
                 const Spacer(),
                 Transform.scale(
                   scale: 1.h,
                   child: Obx(
                     () => Radio<int>(
-                      activeColor: Theme.of(context).cardTheme.color,
+                      activeColor:AppColors.themeColor,
                       value: containerIndex,
                       groupValue: controller.selectedRadio.value,
                       onChanged: (val) {

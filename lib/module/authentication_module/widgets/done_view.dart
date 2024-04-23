@@ -20,7 +20,7 @@ class DoneView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackTextColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding:
             EdgeInsets.only(top: 90.h, left: 35.w, right: 35.w, bottom: 50.h),
@@ -45,11 +45,10 @@ class DoneView extends StatelessWidget {
             child: Text(
               subTitle,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
+              style: AppTextStyles.weightFour(
+              context: context,
                 fontSize: 12.sp,
-                fontFamily: AppTextStyles.fontFamily,
-                fontWeight: FontWeight.w400,
+                height: 1.3.h
               ),
             ),
           ),
@@ -59,13 +58,13 @@ class DoneView extends StatelessWidget {
           Container(
             height: 140.h,
             decoration: BoxDecoration(
-              border: Border.all(width: 2, color: AppColors.whiteTextColor),
+              border: Border.all(width: 2, color: Theme.of(context).appBarTheme.titleTextStyle?.color??Colors.red),
               shape: BoxShape.circle,
             ),
-            child: const Center(
+            child:  Center(
               child: Icon(
                 Icons.done,
-                color: AppColors.themeColor,
+                color: Theme.of(context).appBarTheme.backgroundColor,
                 size: 130,
               ),
             ),
@@ -78,11 +77,10 @@ class DoneView extends StatelessWidget {
             child: Text(
               descriptionText,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
+              style: AppTextStyles.weightFour(
+                context: context,
+                height: 1.3.h,
                 fontSize: 12.sp,
-                fontFamily: AppTextStyles.fontFamily,
-                fontWeight: FontWeight.w400,
               ),
             ),
           ),
@@ -92,7 +90,7 @@ class DoneView extends StatelessWidget {
             child: AuthBtn(
               fontSize: 13.sp,
                 btnText: buttonText??AppTexts.nextText,
-                btnColor: AppColors.btnGreyColor,
+                btnColor: Theme.of(context).appBarTheme.foregroundColor??Colors.red,
                 btnBorderRadius: 8,
                 textColor: AppColors.whiteTextColor,
                 btnHeight: 45.h),

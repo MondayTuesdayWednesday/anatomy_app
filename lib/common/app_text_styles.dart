@@ -13,7 +13,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color:color??AppColors.whiteTextColor,
+      color: color ??( context != null ? Theme.of(context).appBarTheme.titleTextStyle?.color : null) ,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
@@ -31,7 +31,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color:color??AppColors.whiteTextColor,
+      color: color ??( context != null ? Theme.of(context).appBarTheme.titleTextStyle?.color : null) ,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
@@ -49,7 +49,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color:color??AppColors.whiteTextColor,
+      color: color ??( context != null ? Theme.of(context).appBarTheme.titleTextStyle?.color : null) ,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
@@ -67,7 +67,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color:color??AppColors.whiteTextColor,
+      color: color ??( context != null ? Theme.of(context).appBarTheme.titleTextStyle?.color : null) ,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
@@ -85,7 +85,7 @@ class AppTextStyles {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      color:color??AppColors.whiteTextColor,
+      color: color ??( context != null ? Theme.of(context).appBarTheme.titleTextStyle?.color : null) ,
       fontSize: fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,

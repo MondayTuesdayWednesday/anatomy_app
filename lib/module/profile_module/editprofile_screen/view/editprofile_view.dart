@@ -14,7 +14,7 @@ class EditProfileView extends GetView<EditprofileController> {
   @override
   Widget build(BuildContext context) {
  return Scaffold(
-   backgroundColor: AppColors.bgThemeColor,
+   backgroundColor: Theme.of(context).scaffoldBackgroundColor,
    body: Padding(
      padding:  EdgeInsets.symmetric(horizontal:20.w),
      child: SingleChildScrollView(
@@ -29,19 +29,18 @@ class EditProfileView extends GetView<EditprofileController> {
                  onTap: () {
                    Get.back();
                  },
-                   child: SvgPicture.asset(AppAssets.arrowBack)),
+                   child: SvgPicture.asset(AppAssets.arrowBack, color:Theme.of(context).appBarTheme.titleTextStyle?.color,)),
                Text(
                  'Profile',
-                 style: TextStyle(
+                 style: AppTextStyles.weightSeven(
+                   context: context,
                    fontSize: 22.sp,
-                   fontFamily: AppTextStyles.fontFamily,
-                   color:AppColors.themeColor,
-                   fontWeight: FontWeight.w700,
+                   color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                  ),),
                SizedBox(width:7.w,),
              ],
            ),
-           SizedBox(height:15.h,),
+           SizedBox(height:18.h,),
            Center(
              child:SizedBox(
                height: 85.h,
@@ -97,11 +96,10 @@ class EditProfileView extends GetView<EditprofileController> {
        SizedBox(height: 20.h,),
            Text(
              'Full name',
-             style: TextStyle(
+             style: AppTextStyles.weightFour(
+               context: context,
                fontSize: 13.sp,
-               fontFamily: AppTextStyles.fontFamily,
-               color:AppColors.whiteTextColor,
-               fontWeight: FontWeight.w400,
+               color:Theme.of(context).appBarTheme.titleTextStyle?.color,
              ),),
        SizedBox(height: 10.h,),
        Container(
@@ -111,7 +109,7 @@ class EditProfileView extends GetView<EditprofileController> {
            borderRadius: BorderRadius.circular(12),
            border: Border.all(
              width: 1,
-             color:AppColors.whiteTextColor.withOpacity(0.4),
+             color:Theme.of(context).appBarTheme.titleTextStyle?.color?.withOpacity(0.5)??Colors.red,
            ),
          ),
        
@@ -122,13 +120,13 @@ class EditProfileView extends GetView<EditprofileController> {
              FocusScope.of(context).requestFocus(controller.focusNode2);
            },
            decoration: InputDecoration(
-             contentPadding: EdgeInsets.only(left:19.w),
+             contentPadding: EdgeInsets.only(left:19.w,bottom: 15.h,top: 15.h),
              hintText: 'Full Name',
              border: InputBorder.none,
-             hintStyle:  TextStyle(
+             hintStyle:  AppTextStyles.weightFour(
+               context: context,
                fontSize: 10.sp,
-               color: Colors.white54, // Setting hint text color to white with opacity
-               fontFamily: AppTextStyles.fontFamily, // Setting font family for hint text
+               color:Theme.of(context).appBarTheme.titleTextStyle?.color?.withOpacity(0.5),
              ),
            ),
          ),
@@ -136,11 +134,10 @@ class EditProfileView extends GetView<EditprofileController> {
            SizedBox(height: 18.h,),
            Text(
              'Email',
-             style: TextStyle(
+             style: AppTextStyles.weightFour(
                fontSize: 13.sp,
-               fontFamily: AppTextStyles.fontFamily,
-               color:AppColors.whiteTextColor,
-               fontWeight: FontWeight.w400,
+               context: context,
+               color:Theme.of(context).appBarTheme.titleTextStyle?.color,
              ),),
            SizedBox(height: 10.h,),
            Container(
@@ -149,7 +146,7 @@ class EditProfileView extends GetView<EditprofileController> {
                borderRadius: BorderRadius.circular(12),
                border: Border.all(
                  width: 1,
-                 color:AppColors.whiteTextColor.withOpacity(0.4),
+                   color:Theme.of(context).appBarTheme.titleTextStyle!.color!.withOpacity(0.4),
                ),
              ),
        
@@ -160,25 +157,24 @@ class EditProfileView extends GetView<EditprofileController> {
                  FocusScope.of(context).requestFocus(controller.focusNode3);
                },
                decoration: InputDecoration(
-                 contentPadding: EdgeInsets.only(left:19.w),
+                 contentPadding: EdgeInsets.only(left:19.w,top: 15.h,bottom: 15.h),
                  hintText: 'Email',
                  border: InputBorder.none,
-                 hintStyle:  TextStyle(
+                 hintStyle:  AppTextStyles.weightFour(
+                   context: context,
+                   color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                    fontSize: 10.sp,
-                   color: Colors.white54, // Setting hint text color to white with opacity
-                   fontFamily: AppTextStyles.fontFamily, // Setting font family for hint text
                  ),
                ),
              ),
            ),
-           SizedBox(height: 18.h,),
+           SizedBox(height: 20.h,),
            Text(
              'Location',
-             style: TextStyle(
+             style: AppTextStyles.weightFour(
                fontSize: 13.sp,
-               fontFamily: AppTextStyles.fontFamily,
-               color:AppColors.whiteTextColor,
-               fontWeight: FontWeight.w400,
+               context: context,
+               color:Theme.of(context).appBarTheme.titleTextStyle?.color,
              ),),
            SizedBox(height: 10.h,),
            Container(
@@ -187,7 +183,7 @@ class EditProfileView extends GetView<EditprofileController> {
                borderRadius: BorderRadius.circular(12),
                border: Border.all(
                  width: 1,
-                 color:AppColors.whiteTextColor.withOpacity(0.4),
+                 color:Theme.of(context).appBarTheme.titleTextStyle?.color?.withOpacity(0.5)??Colors.red,
                ),
              ),
        
@@ -198,25 +194,25 @@ class EditProfileView extends GetView<EditprofileController> {
                  FocusScope.of(context).requestFocus(controller.focusNode4);
                },
                decoration: InputDecoration(
-                 contentPadding: EdgeInsets.only(left:19.w),
+                 contentPadding: EdgeInsets.only(left:19.w,bottom: 15.h,top: 15.h),
                  hintText: 'Location',
                  border: InputBorder.none,
-                 hintStyle:  TextStyle(
+                 hintStyle:  AppTextStyles.weightFour(
+                   context: context,
                    fontSize: 10.sp,
-                   color: Colors.white54, // Setting hint text color to white with opacity
-                   fontFamily: AppTextStyles.fontFamily, // Setting font family for hint text
+                   color:Theme.of(context).appBarTheme.titleTextStyle?.color ,
+
                  ),
                ),
              ),
            ),
-           SizedBox(height: 18.h,),
+           SizedBox(height: 20.h,),
            Text(
              'Phone Number',
-             style: TextStyle(
+             style: AppTextStyles.weightFour(
                fontSize: 13.sp,
-               fontFamily: AppTextStyles.fontFamily,
-               color:AppColors.whiteTextColor,
-               fontWeight: FontWeight.w400,
+               context: context,
+               color:Theme.of(context).appBarTheme.titleTextStyle?.color,
              ),),
            SizedBox(height: 10.h,),
            Container(
@@ -225,7 +221,7 @@ class EditProfileView extends GetView<EditprofileController> {
                borderRadius: BorderRadius.circular(12),
                border: Border.all(
                  width: 1,
-                 color:AppColors.whiteTextColor.withOpacity(0.4),
+                 color:Theme.of(context).appBarTheme.titleTextStyle!.color!.withOpacity(0.4),
                ),
              ),
        
@@ -237,24 +233,24 @@ class EditProfileView extends GetView<EditprofileController> {
                },
                keyboardType: TextInputType.phone,
                decoration: InputDecoration(
-                 contentPadding: EdgeInsets.only(left:19.w),
+                 contentPadding: EdgeInsets.only(left:19.w,bottom: 15.h,top: 15.h),
                  hintText: '+91 0000',
                  border: InputBorder.none,
-                 hintStyle:  TextStyle(
+                 hintStyle:  AppTextStyles.weightFour(
+                   context: context,
                    fontSize: 10.sp,
-                   color: Colors.white54, // Setting hint text color to white with opacity
-                   fontFamily: AppTextStyles.fontFamily, // Setting font family for hint text
-                 ),
+                   color:Theme.of(context).appBarTheme.titleTextStyle?.color
+
                ),
              ),
-           ),
+           ),),
        SizedBox(height: 85.h,),
        Container(
          height: 47.h,
          width: 310.w,
          decoration: BoxDecoration(
            borderRadius: BorderRadius.circular(12),
-             color:AppColors.btnGreyColor,
+             color:Theme.of(context).appBarTheme.foregroundColor
          ),
          child:Center(
            child: Text(

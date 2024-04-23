@@ -1,4 +1,6 @@
 // PaymentView
+import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
+import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -18,7 +20,7 @@ class PaymentView extends GetView<PaymentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackTextColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body:
         Padding(
           padding: EdgeInsets.only(
@@ -33,14 +35,15 @@ class PaymentView extends GetView<PaymentController> {
                 onTap: () {
                   Get.back();
                 },
-                child: Container(
+                child:  Container(
                   height: 40.h,
                   width: 40.w,
                   decoration:  BoxDecoration(
                     shape: BoxShape.circle,
-                    color: AppColors.whiteTextColor,
+                    color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                   ),
-                  child:  Center(child: SvgPicture.asset("assets/icons/arrow_left.svg",)),
+                  child:  Center(child: SvgPicture.asset("assets/icons/arrow_left.svg",
+                    color: Theme.of(context).primaryTextTheme.titleMedium?.color,)),
                 ),
               ),
               SizedBox(
@@ -48,13 +51,18 @@ class PaymentView extends GetView<PaymentController> {
               ),
               SizedBox(
                 width: 283.w,
-                child: Text(
-                  AppTexts.achieveGoalsText,
-                  style: TextStyle(
-                    color: AppColors.themeColor,
-                    fontSize: 25.sp,
-                    fontFamily: AppTextStyles.fontFamily,
-                    fontWeight: FontWeight.w700,
+                child: GestureDetector(
+                  onTap: (){
+                    Get.to(AppearancePage(),binding: AppearanceBinding());
+                  },
+                  child: Text(
+                    AppTexts.achieveGoalsText,
+                    style: TextStyle(
+                      color:Theme.of(context).appBarTheme.backgroundColor,
+                      fontSize: 25.sp,
+                      fontFamily: AppTextStyles.fontFamily,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),
@@ -83,9 +91,10 @@ class PaymentView extends GetView<PaymentController> {
                                       .withOpacity(0.4),
                                   border: Border.all(
                                       width: 0.5.w,
-                                      color: AppColors.whiteTextColor),
+                                      color: Theme.of(context).appBarTheme.titleTextStyle!.color!),
                                   shape: BoxShape.circle),
-                              child: SvgPicture.asset(controller.iconList[index],fit: BoxFit.scaleDown,)),
+                              child: SvgPicture.asset(controller.iconList[index],fit: BoxFit.scaleDown,color: Theme.of(context).appBarTheme.titleTextStyle?.color,),
+                          ),
                           SizedBox(
                             width: 10.w,
                           ),
@@ -93,11 +102,10 @@ class PaymentView extends GetView<PaymentController> {
                             width: 239.w,
                             child: Text(
                               controller.textList[index],
-                              style: TextStyle(
-                                color: AppColors.whiteTextColor,
-                                fontSize: 11.sp,
-                                fontFamily: AppTextStyles.fontFamily,
-                                fontWeight: FontWeight.w400,
+                              style: AppTextStyles.weightFour(
+                                context: context,
+                                fontSize: 10.sp,
+                                height: 1.3.h
                               ),
                             ),
                           ),
@@ -110,11 +118,9 @@ class PaymentView extends GetView<PaymentController> {
               SizedBox(height: 20.h),
               Text(
                 'Pick a Subscription',
-                style: TextStyle(
-                  color: Colors.white,
+                style: AppTextStyles.weightSix(
                   fontSize: 13.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  fontWeight: FontWeight.w600,
+                  context: context
                 ),
               ),
               SizedBox(height: 10.h),
@@ -141,15 +147,15 @@ class PaymentView extends GetView<PaymentController> {
                           child: Container(
                             width: 90.w,
                             height: 25.h,
-                            decoration: const BoxDecoration(
-                                color: AppColors.whiteTextColor,
+                            decoration:  BoxDecoration(
+                                color: Theme.of(context).appBarTheme.surfaceTintColor,
                                 borderRadius: BorderRadius.all(Radius.circular(4))),
                             child: Center(
                               child: Text(
                                 'Saved \$2.99',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Theme.of(context).primaryTextTheme.titleMedium?.color,
                                   fontSize: 10.sp,
                                   fontFamily: AppTextStyles.fontFamily,
                                   fontWeight: FontWeight.w700,

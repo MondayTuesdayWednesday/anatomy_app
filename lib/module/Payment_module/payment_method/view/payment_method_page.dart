@@ -3,6 +3,9 @@ import 'package:anatomy/common/app_colors.dart';
 import 'package:anatomy/common/app_text_styles.dart';
 import 'package:anatomy/module/Payment_module/card_detail/binding/card_detail_binding.dart';
 import 'package:anatomy/module/Payment_module/card_detail/view/card_detail_page.dart';
+import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
+import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,7 +17,7 @@ class PaymentMethodPage extends GetView<PaymentMethodController> {
   @override
   Widget build(BuildContext context) {
    return Scaffold(
-     backgroundColor: AppColors.bgThemeColor,
+     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
      body: Center(
        child: Column(
          children: [
@@ -22,10 +25,8 @@ class PaymentMethodPage extends GetView<PaymentMethodController> {
              height: 90.h,
            ),
            Text("Payment Method",
-             style: TextStyle(
-             color: AppColors.whiteTextColor,
-             fontFamily: AppTextStyles.fontFamily,
-             fontWeight: FontWeight.w800,
+             style: AppTextStyles.weightEight(
+             context: context,
              fontSize: 22.sp
            ),),
            SizedBox(height: 15.h,),
@@ -33,11 +34,10 @@ class PaymentMethodPage extends GetView<PaymentMethodController> {
              width: 220.w,
              child: Text("Stay signed in with your account to make searching easier",
                textAlign: TextAlign.center,
-               style: TextStyle(
-               fontSize: 12.sp,
-               fontWeight: FontWeight.w400,
-               fontFamily: AppTextStyles.fontFamily,
-               color: AppColors.whiteTextColor
+               style: AppTextStyles.weightFour(
+                 context: context,
+               fontSize: 11.sp,
+                 height: 1.3.h
              ),),
            ),
            SizedBox(height: 50.h,),
@@ -57,10 +57,8 @@ class PaymentMethodPage extends GetView<PaymentMethodController> {
                  children: [
                    SvgPicture.asset(AppAssets.googleLogo),
                    SizedBox(width: 5.w,),
-                   Text("Google Pay",style: TextStyle(
-                     color: AppColors.whiteTextColor,
-                     fontFamily: AppTextStyles.fontFamily,
-                     fontWeight: FontWeight.w400,
+                   Text("Google Pay",style: AppTextStyles.weightFour(
+                     context: context,
                      fontSize: 12.sp
                    ),)
                  ],

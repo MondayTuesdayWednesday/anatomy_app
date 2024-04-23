@@ -15,7 +15,7 @@ class HelpPage extends GetView<HelpPageController> {
   @override
   Widget build(BuildContext context) {
    return Scaffold(
-     backgroundColor: AppColors.bgThemeColor,
+     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
      body: Padding(
        padding:  EdgeInsets.symmetric(horizontal:20.h ),
        child: Column(
@@ -34,14 +34,14 @@ class HelpPage extends GetView<HelpPageController> {
 
             child:   Padding(
               padding:  EdgeInsets.only(left: 4.w),
-              child: SvgPicture.asset(AppAssets.arrowBack),
+              child: SvgPicture.asset(AppAssets.arrowBack,color: Theme.of(context).appBarTheme.backgroundColor,),
             ),),
                     Text(
                       AppTexts.helptext,
                       style:TextStyle(
              fontSize: 22.sp,
              fontFamily: AppTextStyles.fontFamily,
-             color:AppColors.themeColor,
+             color:Theme.of(context).appBarTheme.backgroundColor,
              fontWeight: FontWeight.w700,
                       ),),
                   SizedBox(width:20.w),
@@ -71,7 +71,7 @@ class HelpPage extends GetView<HelpPageController> {
                              borderRadius: BorderRadius.circular(12),
                              border: Border.all(
                                width: 1,
-                               color:AppColors.whiteTextColor.withOpacity(0.4),
+                               color:Theme.of(context).appBarTheme.titleTextStyle!.color!.withOpacity(0.4),
                              ),
                            ),
                            child: Padding(
@@ -82,11 +82,12 @@ class HelpPage extends GetView<HelpPageController> {
 
                                  Text(
                                     '${AppTexts.questiontext}  ${index + 1}',
-                                   style: TextStyle(
+                                   style: AppTextStyles.weightFour(
+                                     context: context,
+                                     height: 1.3.h,
                                      fontSize: 13.sp,
-                                     fontFamily: AppTextStyles.fontFamily,
-                                     color: AppColors.whiteTextColor,
-                                     fontWeight: FontWeight.w400,
+
+
                                    ),
                                  ),
 
@@ -108,11 +109,12 @@ class HelpPage extends GetView<HelpPageController> {
                            width: 285.w,
                            child:  Text(
                              AppTexts.dummytext,
-                             style: TextStyle(
+                             style: AppTextStyles.weightFour(
+                               context: context,
+                               height: 1.3.h,
                                fontSize: 12.sp,
-                               fontFamily: AppTextStyles.fontFamily,
-                               color: AppColors.whiteTextColor,
-                               fontWeight: FontWeight.w400,
+
+
                              ),),
                          ),
                        )

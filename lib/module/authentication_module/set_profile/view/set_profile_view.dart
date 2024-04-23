@@ -1,4 +1,6 @@
 import 'package:anatomy/common/app_assets.dart';
+import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
+import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +20,7 @@ class SetProfileImagePage extends GetView<SetProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgThemeColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: EdgeInsets.only(top: 130.h, left: 30.w, right: 30.w),
         child: Column(
@@ -57,6 +59,7 @@ class SetProfileImagePage extends GetView<SetProfileController> {
                         : Center(
                           child: SvgPicture.asset(
                                                 AppAssets.profileIcon,
+                                                color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                                                 height: 145.h, // Use screen adaptation if necessary
                                               ),
                         );
@@ -74,8 +77,8 @@ class SetProfileImagePage extends GetView<SetProfileController> {
                   child: Container(
                     height: 45.h,
                     width: 45.w,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
+                    decoration:  BoxDecoration(
+                      color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -90,7 +93,7 @@ class SetProfileImagePage extends GetView<SetProfileController> {
                       child: Icon(
                         Icons.camera_alt_rounded,
                         size: 22.h,
-                        color: AppColors.bgThemeColor,
+                        color: Theme.of(context).primaryTextTheme.titleMedium?.color,
                       ),
                     ),
                   ),
@@ -102,13 +105,13 @@ class SetProfileImagePage extends GetView<SetProfileController> {
               height: 150.h,
             ),
             GestureDetector(
-              onTap: () {
-                Get.off( const SignUpPage(), binding: SignUpBinding());
-              },
+              onTap: () {  Get.off(  SignUpPage(), binding: SignUpBinding());
+    },
+
               child: AuthBtn(
                 fontSize: 13.sp,
                 btnText: AppTexts.createAccountText,
-                btnColor: AppColors.btnGreyColor,
+                btnColor: Theme.of(context).appBarTheme.foregroundColor??Colors.red,
                 btnBorderRadius: 8,
                 textColor: AppColors.whiteTextColor,
                 btnHeight: 45.h,

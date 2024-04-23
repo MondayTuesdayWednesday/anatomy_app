@@ -19,7 +19,7 @@ class SignUpPage extends GetView<SignUpController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgThemeColor,
+      backgroundColor:Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only( top: 90.h,left: 26.w, right: 26.w),
@@ -124,7 +124,7 @@ class SignUpPage extends GetView<SignUpController> {
                   },
                   child: AuthBtn(
                     btnText: AppTexts.signUpText,
-                    btnColor: AppColors.btnGreyColor,
+                    btnColor: Theme.of(context).appBarTheme.foregroundColor??Colors.red,
                     btnBorderRadius: 8,
                     textColor: AppColors.whiteTextColor,
                     btnHeight: 45.h,

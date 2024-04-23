@@ -1,3 +1,5 @@
+import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
+import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +23,7 @@ class SignInPage extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgThemeColor,
+   backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only( top: 90.h,left: 26.w, right: 26.w),
@@ -144,7 +146,7 @@ class SignInPage extends GetView<SignInController> {
                   },
                   child: AuthBtn(
                     btnText: AppTexts.signInText,
-                    btnColor: AppColors.btnGreyColor,
+                    btnColor:Theme.of(context).appBarTheme.foregroundColor??Colors.red,
                     btnBorderRadius: 8,
                     textColor: AppColors.whiteTextColor,
                     btnHeight: 45.h,
@@ -208,11 +210,9 @@ class SignInPage extends GetView<SignInController> {
                       ),
                       Text(
                         AppTexts.continueWithGoogleText,
-                        style: TextStyle(
-                          color: Colors.white,
+                        style: AppTextStyles.weightFour(
+                          context: context,
                           fontSize: 12.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],
@@ -244,11 +244,10 @@ class SignInPage extends GetView<SignInController> {
                       ),
                       Text(
                         AppTexts.continueWithFacebookText,
-                        style: TextStyle(
-                          color: Colors.white,
+                        style: AppTextStyles.weightFour(
+                          context: context,
                           fontSize: 12.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          fontWeight: FontWeight.w400,
+
                         ),
                       ),
                     ],
@@ -262,11 +261,10 @@ class SignInPage extends GetView<SignInController> {
                 child: Text.rich(TextSpan(children: [
                   TextSpan(
                     text: AppTexts.dontHaveAccountText,
-                    style: TextStyle(
-                      color: Colors.white,
+                    style: AppTextStyles.weightFour(
+                      context: context,
                       fontSize: 12.sp,
-                      fontFamily: AppTextStyles.fontFamily,
-                      fontWeight: FontWeight.w400,
+
                     ),
                   ),
 
@@ -276,11 +274,9 @@ class SignInPage extends GetView<SignInController> {
                       ..onTap = () {
                         Get.off(const SignUpPage(), binding: SignUpBinding());
                       },
-                    style: TextStyle(
-                      color: AppColors.whiteTextColor,
+                    style: AppTextStyles.weightSix(
+                      context: context,
                       fontSize: 14.sp,
-                      fontFamily: AppTextStyles.fontFamily,
-                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ])),

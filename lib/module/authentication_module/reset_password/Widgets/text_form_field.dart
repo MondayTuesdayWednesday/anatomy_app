@@ -46,7 +46,7 @@ class PasswordTextField extends StatelessWidget {
           ),
           border: InputBorder.none,
           suffixIcon: suffixIcon,
-          prefixIcon: Icon(prefixIcon,size: 20,color: AppColors.whiteTextColor,),
+          prefixIcon: Icon(prefixIcon,size: 20,color: Theme.of(context).appBarTheme.titleTextStyle?.color,),
           hintText: text,
           hintStyle: TextStyle(
             fontSize: 12.sp,

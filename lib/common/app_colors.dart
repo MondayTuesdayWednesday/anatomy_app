@@ -18,4 +18,6 @@ class AppColors {
   static const lightBlackColor = Color(0xff9A9A9A);
   static const orTextColor=Color(0xffABB3BB);
   static const containerGradientColor=Color(0xff999999);
+  static const circleContainerColor=Color(0xffE1EBEC);
+  static const lightBgColor=Color(0xffF3F5EF);
 }

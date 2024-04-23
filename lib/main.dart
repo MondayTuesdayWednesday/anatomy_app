@@ -7,12 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import 'common/app_colors.dart';
 import 'common/app_theme.dart';
 import 'module/profile_module/appearance/controller/appearance_controller.dart';
-
-
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -41,9 +38,8 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
-          home: const HomePageDrawer(),
+          home:  HomePageDrawer(),
           initialBinding: HomeBinding(),
-
         );
       },
     );

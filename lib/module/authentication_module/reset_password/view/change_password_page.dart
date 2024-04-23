@@ -24,7 +24,7 @@ class ResetPasswordPage extends GetView<ResetPasswordController> {
   Widget build(BuildContext context) {
     return  Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: AppColors.bgThemeColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only( top: 70.h,left: 25.w, right: 25.w),
@@ -34,30 +34,30 @@ class ResetPasswordPage extends GetView<ResetPasswordController> {
             children: [
 
               SvgPicture.asset(AppAssets.forgetPageIcon,
+              color: Theme.of(context).appBarTheme.titleTextStyle?.color,
               height: 150.h,),
+              SizedBox(height: 7.h,),
               Text(
                 AppTexts.forgetPasswordText,
-                style: TextStyle(
-                  color: AppColors.whiteTextColor,
+                style: AppTextStyles.weightEight(
+                  context: context,
                   fontSize: 20.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  fontWeight: FontWeight.w800,
                 ),
               ),
               SizedBox(
-                height: 7.h,
+                height: 10.h,
               ),
               Center(
                 child: SizedBox(
-                  width: 180.w,
+                  width: 210.w,
                   child: Text(
                     AppTexts.staySignedText,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
+                    style: AppTextStyles.weightFour(
+                      context: context,
+                      height: 1.3.h,
                       fontSize: 11.sp,
-                      fontFamily: AppTextStyles.fontFamily,
-                      fontWeight: FontWeight.w400,
+
                     ),
                   ),
                 ),
@@ -80,7 +80,7 @@ class ResetPasswordPage extends GetView<ResetPasswordController> {
               ),
 
               Obx(() {
-                return MyTextFormField(
+                return PasswordTextField(
                   prefixIcon: Icons.lock_outline ,
                   obscureText: controller.isPasswordVisible.value,
                   controller: controller.passwordController,
@@ -143,11 +143,11 @@ class ResetPasswordPage extends GetView<ResetPasswordController> {
               ),
               GestureDetector(
                   onTap: () {
-                    Get.off(ResetSuccessFullyPage());
+                    Get.off(const ResetSuccessFullyPage());
                   },
                   child: AuthBtn(
                     btnText: AppTexts.changePasswordText,
-                    btnColor: AppColors.btnGreyColor,
+                    btnColor: Theme.of(context).appBarTheme.foregroundColor??Colors.red,
                     btnBorderRadius: 8,
                     textColor: AppColors.whiteTextColor,
                     btnHeight: 45.h,
@@ -159,7 +159,7 @@ class ResetPasswordPage extends GetView<ResetPasswordController> {
 
               GestureDetector(
                 onTap: () {
-                  Get.off(SignInPage() , binding: SignInBinding());
+                  Get.off(const SignInPage() , binding: SignInBinding());
                 },
                 child: Text(
                   AppTexts.backToLoginText,
@@ -169,8 +169,6 @@ class ResetPasswordPage extends GetView<ResetPasswordController> {
                   ),
                 ),
               ),
-
-
             ],
           ),
         ),

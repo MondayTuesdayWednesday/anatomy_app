@@ -9,8 +9,6 @@ import 'package:anatomy/module/profile_module/editprofile_screen/binding/editpro
 import 'package:anatomy/module/profile_module/editprofile_screen/view/editprofile_view.dart';
 import 'package:anatomy/module/profile_module/help_screen/binding/help_page_binding.dart';
 import 'package:anatomy/module/profile_module/help_screen/view/help_page.dart';
-import 'package:anatomy/module/profile_module/languagesettings/binding/languagesettings_binding.dart';
-import 'package:anatomy/module/profile_module/languagesettings/view/languagesetttings_view.dart';
 import 'package:anatomy/module/profile_module/privacypolicy_screen/binding/privacypolicy_binding.dart';
 import 'package:anatomy/module/profile_module/privacypolicy_screen/view/privacypolicy_view.dart';
 import 'package:anatomy/module/profile_module/profile_screen/controller/profile_controller.dart';
@@ -24,14 +22,13 @@ import 'package:get/get.dart';
 import '../../../../common/app_colors.dart';
 import '../../../../common/app_texts.dart';
 import '../../changepassword_screen/binding/changepassword_binding.dart';
-
 class ProfileView extends GetView<ProfileController>{
   const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
    return Scaffold(
-     backgroundColor: AppColors.bgThemeColor,
+     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
      body: Padding(
        padding: EdgeInsets.symmetric(horizontal:21.h),
        child: Column(
@@ -46,21 +43,20 @@ class ProfileView extends GetView<ProfileController>{
                  },
                    child: Padding(
                      padding:  EdgeInsets.only(left: 5.w),
-                     child: SvgPicture.asset(AppAssets.arrowBack),
+                     child: SvgPicture.asset(AppAssets.arrowBack,color: Theme.of(context).appBarTheme.backgroundColor,),
                    )),
                Text(
                  AppTexts.profiletext,
                  textAlign: TextAlign.center,
-                 style: TextStyle(
+                 style: AppTextStyles.weightSeven(
                    fontSize: 21.sp,
-                   fontFamily: AppTextStyles.fontFamily,
-                   color:AppColors.themeColor,
-                   fontWeight: FontWeight.w700,
+                   context: context,
+                   color:  Theme.of(context).appBarTheme.backgroundColor,
                  ),),
                SizedBox(width:20.w,),
              ],
            ),
-           SizedBox(height: 15.h),
+           SizedBox(height: 20.h),
            Row(
              children: [
                Container(
@@ -80,12 +76,11 @@ class ProfileView extends GetView<ProfileController>{
                  children: [
                    Text(
                AppTexts.elonGatedtext,
-                     style: TextStyle(
+                     style: AppTextStyles.weightSix(
+                       context: context,
                        fontSize: 17.sp,
-                       fontFamily: AppTextStyles.fontFamily,
-                       color:AppColors.whiteTextColor,
-                       fontWeight: FontWeight.w600,
                      ),),
+                   SizedBox(height: 5.h,),
                    Text(
                      'elon@gated.com',
                      style: TextStyle(
@@ -105,28 +100,27 @@ class ProfileView extends GetView<ProfileController>{
                 Get.to( const EditProfileView()  ,binding: EditprofileBinding());
               },
               child: Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16.h),
+                padding:  EdgeInsets.symmetric(vertical: 17.h),
                 child: Container(
                   color: Colors.transparent,
                   child: Row(
                     children: [
                       Icon(Icons.person_outline_rounded,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 16.sp,
                       ),
                       SizedBox(width: 12.w,),
                       Text(
                         "Profile Setting",
-                        style: TextStyle(
+                        style: AppTextStyles.weightFour(
                           fontSize: 13.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          color:AppColors.borderHintColor,
-                          fontWeight: FontWeight.w400,
+                          color:Theme.of(context).appBarTheme.titleTextStyle?.color,
+                          context: context
                         ),),
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 15.sp,
                       ),
                     ],
@@ -146,28 +140,27 @@ class ProfileView extends GetView<ProfileController>{
                 Get.to( ChangePasswordView() , binding: ChangepasswordBinding());
               },
               child: Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16.h),
+                padding:  EdgeInsets.symmetric(vertical: 17.h),
                 child: Container(
                   color: Colors.transparent,
                   child: Row(
                     children: [
                       Icon(Icons.password,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 16.sp,
                       ),
                       SizedBox(width: 12.w,),
                       Text(
                         "Change Password",
-                        style: TextStyle(
+                        style: AppTextStyles.weightFour(
+                          context: context,
                           fontSize: 13.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          color:AppColors.borderHintColor,
-                          fontWeight: FontWeight.w400,
+                          color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         ),),
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 15.sp,
                       ),
                     ],
@@ -184,28 +177,27 @@ class ProfileView extends GetView<ProfileController>{
 
 
             Padding(
-              padding:  EdgeInsets.symmetric(vertical: 16.h),
+              padding:  EdgeInsets.symmetric(vertical: 17.h),
               child: Container(
                 color: Colors.transparent,
                 child: Row(
                   children: [
                     Icon(Icons.credit_card_rounded,
-                      color:AppColors.whiteTextColor,
+                      color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                       size: 16.sp,
                     ),
                     SizedBox(width: 12.w,),
                     Text(
                       "Subscription Details",
-                      style: TextStyle(
+                      style: AppTextStyles.weightFour(
+                        context: context,
                         fontSize: 13.sp,
-                        fontFamily: AppTextStyles.fontFamily,
-                        color:AppColors.borderHintColor,
-                        fontWeight: FontWeight.w400,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                       ),),
                     const Spacer(),
                     Icon(
                       Icons.arrow_forward_ios,
-                      color:AppColors.whiteTextColor,
+                      color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                       size: 15.sp,
                     ),
                   ],
@@ -224,28 +216,27 @@ class ProfileView extends GetView<ProfileController>{
                Get.to(AppearancePage() , binding: AppearanceBinding());
              },
               child: Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16.h),
+                padding:  EdgeInsets.symmetric(vertical: 17.h),
                 child: Container(
                   color: Colors.transparent,
                   child: Row(
                     children: [
                       Icon(Icons.palette_outlined,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 16.sp,
                       ),
                       SizedBox(width: 12.w,),
                       Text(
                         "Appearance",
-                        style: TextStyle(
+                        style: AppTextStyles.weightFour(
                           fontSize: 13.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          color:AppColors.borderHintColor,
-                          fontWeight: FontWeight.w400,
+                          color:Theme.of(context).appBarTheme.titleTextStyle?.color,
+                          context: context
                         ),),
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 15.sp,
                       ),
                     ],
@@ -266,28 +257,27 @@ class ProfileView extends GetView<ProfileController>{
                Get.to(const TermConditionView() , binding: TermConditionBinding());
              },
               child: Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16.h),
+                padding:  EdgeInsets.symmetric(vertical: 17.h),
                 child: Container(
                   color: Colors.transparent,
                   child: Row(
                     children: [
                       Icon(Icons.chat_outlined,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 16.sp,
                       ),
                       SizedBox(width: 12.w,),
                       Text(
                         "Term and Conditions",
-                        style: TextStyle(
+                        style: AppTextStyles.weightFour(
+                          context: context,
                           fontSize: 13.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          color:AppColors.borderHintColor,
-                          fontWeight: FontWeight.w400,
+                          color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         ),),
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 15.sp,
                       ),
                     ],
@@ -308,28 +298,27 @@ class ProfileView extends GetView<ProfileController>{
                Get.to( const HelpPage() , binding: HelppageBinding());
              },
               child: Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16.h),
+                padding:  EdgeInsets.symmetric(vertical: 17.h),
                 child: Container(
                   color: Colors.transparent,
                   child: Row(
                     children: [
                       Icon(Icons.headset_mic_outlined,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 16.sp,
                       ),
                       SizedBox(width: 12.w,),
                       Text(
                         "Help",
-                        style: TextStyle(
+                        style: AppTextStyles.weightFour(
+                          context: context,
                           fontSize: 13.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          color:AppColors.borderHintColor,
-                          fontWeight: FontWeight.w400,
+                          color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         ),),
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 15.sp,
                       ),
                     ],
@@ -349,28 +338,27 @@ class ProfileView extends GetView<ProfileController>{
                Get.to(const PrivacyPolicyView( ) , binding: PrivacypolicyBinding());
              },
               child: Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16.h),
+                padding:  EdgeInsets.symmetric(vertical: 17.h),
                 child: Container(
                   color: Colors.transparent,
                   child: Row(
                     children: [
                       Icon(Icons.verified_user_outlined,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 20.sp,
                       ),
                       SizedBox(width: 12.w,),
                       Text(
                         "Privacy Policy",
-                        style: TextStyle(
+                        style: AppTextStyles.weightFour(
+                          context: context,
                           fontSize: 13.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          color:AppColors.borderHintColor,
-                          fontWeight: FontWeight.w400,
+                          color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         ),),
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 15.sp,
                       ),
                     ],
@@ -390,28 +378,27 @@ class ProfileView extends GetView<ProfileController>{
                Get.to(const SplashView());
              },
               child: Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16.h),
+                padding:  EdgeInsets.symmetric(vertical: 17.h),
                 child: Container(
                   color: Colors.transparent,
                   child: Row(
                     children: [
                       Icon(Icons.info_outline,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 16.sp,
                       ),
                       SizedBox(width: 12.w,),
                       Text(
                         "App Info",
-                        style: TextStyle(
+                        style: AppTextStyles.weightFour(
+                          context: context,
                           fontSize: 13.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          color:AppColors.borderHintColor,
-                          fontWeight: FontWeight.w400,
+                          color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         ),),
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 15.sp,
                       ),
                     ],
@@ -431,28 +418,27 @@ class ProfileView extends GetView<ProfileController>{
                 Get.off( const SignInPage() , binding: SignInBinding());
               },
               child: Padding(
-                padding:  EdgeInsets.symmetric(vertical: 16.h),
+                padding:  EdgeInsets.symmetric(vertical: 17.h),
                 child: Container(
                   color: Colors.transparent,
                   child: Row(
                     children: [
                       Icon(Icons.logout,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 16.sp,
                       ),
                       SizedBox(width: 12.w,),
                       Text(
                         "Log Out",
-                        style: TextStyle(
+                        style: AppTextStyles.weightFour(
+                          context: context,
                           fontSize: 13.sp,
-                          fontFamily: AppTextStyles.fontFamily,
-                          color:AppColors.borderHintColor,
-                          fontWeight: FontWeight.w400,
+                          color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         ),),
                       const Spacer(),
                       Icon(
                         Icons.arrow_forward_ios,
-                        color:AppColors.whiteTextColor,
+                        color:Theme.of(context).appBarTheme.titleTextStyle?.color,
                         size: 15.sp,
                       ),
                     ],

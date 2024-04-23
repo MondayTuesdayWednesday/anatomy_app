@@ -1,8 +1,11 @@
 import 'package:anatomy/common/app_assets.dart';
 import 'package:anatomy/module/authentication_module/signin/binding/sign_in_binding.dart';
 import 'package:anatomy/module/authentication_module/signin/view/sign_in_view.dart';
+import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
+import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -23,49 +26,46 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
   Widget build(BuildContext context) {
     return  Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: AppColors.bgThemeColor,
+      backgroundColor:Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only( top: 70.h,left: 25.w, right: 25.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-
             children: [
-
               SvgPicture.asset(AppAssets.forgetPageIcon,
+              color: Theme.of(context).appBarTheme.titleTextStyle?.color,
               height: 150.h,),
               SizedBox(
                 height: 20.h,
               ),
               Text(
                 AppTexts.forgetPasswordText,
-                style: TextStyle(
-                  color: AppColors.whiteTextColor,
+                style: AppTextStyles.weightEight(
+                  context: context,
                   fontSize: 20.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  fontWeight: FontWeight.w800,
                 ),
               ),
               SizedBox(
-                height: 7.h,
+                height: 15.h,
               ),
               Center(
                 child: SizedBox(
-                  width: 180.w,
+                  width: 210.w,
                   child: Text(
                     AppTexts.staySignedText,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
+                    style: AppTextStyles.weightFour(
+                      context: context,
+                      height: 1.3.h,
                       fontSize: 11.sp,
-                      fontFamily: AppTextStyles.fontFamily,
-                      fontWeight: FontWeight.w400,
+
                     ),
                   ),
                 ),
               ),
               SizedBox(
-                height: 23.h,
+                height: 26.h,
               ),
               Align(
                 alignment: Alignment.topLeft,
@@ -97,14 +97,14 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                   },
                   child: AuthBtn(
                     btnText: AppTexts.sendEmailText,
-                    btnColor: AppColors.btnGreyColor,
+                    btnColor: Theme.of(context).appBarTheme.foregroundColor??Colors.red,
                     btnBorderRadius: 8,
                     textColor: AppColors.whiteTextColor,
                     btnHeight: 45.h,
                     fontSize: 13.sp,
                   )),
               SizedBox(
-                height: 15.h,
+                height: 18.h,
               ),
 
               GestureDetector(
@@ -115,7 +115,7 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                   AppTexts.backToLoginText,
                   style: AppTextStyles.weightFour(
                     context: context,
-                    fontSize: 13.sp,
+                    fontSize: 12.sp,
 
                   ),
                 ),

@@ -16,7 +16,7 @@ class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
    return Scaffold(
-     backgroundColor: AppColors.bgThemeColor,
+     backgroundColor:Theme.of(context).scaffoldBackgroundColor,
      body: Padding(
        padding: EdgeInsets.symmetric(horizontal: 20.w),
        child: Column(
@@ -29,13 +29,13 @@ class SplashView extends GetView<SplashController> {
                  onTap: () {
                    Get.back();
                  },
-                   child: SvgPicture.asset(AppAssets.arrowBack)),
+                   child: SvgPicture.asset(AppAssets.arrowBack,color: Theme.of(context).appBarTheme.foregroundColor,)),
                Text(
                  'App Info',
                  style: TextStyle(
                    fontSize: 22.sp,
                    fontFamily: AppTextStyles.fontFamily,
-                   color:AppColors.themeColor,
+                   color: Theme.of(context).appBarTheme.foregroundColor,
                    fontWeight: FontWeight.w700,
                  ),),
                SizedBox(width:5.w),
@@ -43,6 +43,7 @@ class SplashView extends GetView<SplashController> {
            ),
            SizedBox(height: 80.h,),
            SvgPicture.asset(AppAssets.splashImage,
+           color: Theme.of(context).appBarTheme.titleTextStyle?.color,
            height: 168.h,
           ),
            SizedBox(height: 12.h,),
@@ -51,15 +52,13 @@ class SplashView extends GetView<SplashController> {
              children: [
                Text(
                  'Kumar Anatomy',
-                 style: TextStyle(
-                   fontSize:32.sp,
-                   fontFamily: AppTextStyles.fontFamily,
-                   color:AppColors.whiteTextColor,
-                   fontWeight: FontWeight.w700,
+                 style: AppTextStyles.weightSeven(
+                   fontSize:27.sp,
+                   context: context,
                  ),),
              ],
            ),
-           SizedBox(height: 4.h,),
+           SizedBox(height: 10.h,),
            Padding(
              padding:  EdgeInsets.only(right: 10.w),
              child: Row(
@@ -70,7 +69,7 @@ class SplashView extends GetView<SplashController> {
                    height: 20.h,
                    width: 95.w,
                    decoration: BoxDecoration(
-                     color:AppColors.themeColor,
+                     color:Theme.of(context).appBarTheme.backgroundColor,
                      borderRadius: BorderRadius.circular(2),
                    ),
 
@@ -78,9 +77,9 @@ class SplashView extends GetView<SplashController> {
                      child: Text(
                        "App Version",
                        style: TextStyle(
-                         fontSize:14.sp,
+                         fontSize:12.sp,
                          fontFamily: AppTextStyles.fontFamily,
-                         color:AppColors.textBlackColor,
+                         color:Theme.of(context).primaryTextTheme.titleMedium?.color,
                          fontWeight: FontWeight.w700,
                        ),),
                    ),
@@ -88,11 +87,9 @@ class SplashView extends GetView<SplashController> {
                  SizedBox(width: 6.w,),
                  Text(
                    "2.0",
-                   style: TextStyle(
+                   style: AppTextStyles.weightSeven(
                      fontSize:13.sp,
-                     fontFamily: AppTextStyles.fontFamily,
-                     color:AppColors.whiteTextColor,
-                     fontWeight: FontWeight.w700,
+                     context: context
                    ),),
                  SizedBox(width: 20.w,),
                ],
@@ -103,11 +100,10 @@ class SplashView extends GetView<SplashController> {
              child: Text(
                textAlign: TextAlign.center,
                "Lorem ipsum dolor sit amet, consectetur adipiscing dolor sit amet elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing dolor sit amet elit, sed do eiusmod",
-               style: TextStyle(
+               style: AppTextStyles.weightFour(
                  fontSize:13.sp,
-                 fontFamily: AppTextStyles.fontFamily,
-                 color:AppColors.whiteTextColor,
-                 fontWeight: FontWeight.w400,
+                 height: 1.3.h,
+                 context: context
                ),),
            )
          ],

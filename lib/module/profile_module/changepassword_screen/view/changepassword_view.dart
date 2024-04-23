@@ -14,7 +14,7 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: AppColors.bgThemeColor,
+      backgroundColor:Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
@@ -29,13 +29,13 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                     onTap: () {
                      Get.back();
                     },
-                    child: SvgPicture.asset(AppAssets.arrowBack),),
+                    child: SvgPicture.asset(AppAssets.arrowBack,color: Theme.of(context).appBarTheme.backgroundColor,),),
                   Text(
                     'Change Password',
                     style: TextStyle(
                       fontSize: 22.sp,
                       fontFamily: AppTextStyles.fontFamily,
-                      color: AppColors.themeColor,
+                      color:  Theme.of(context).appBarTheme.backgroundColor,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -45,21 +45,19 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
               SizedBox(height: 50.h),
               Text(
                 'Old Password',
-                style: TextStyle(
+                style: AppTextStyles.weightFour(
+                  context: context,
                   fontSize: 13.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  color: AppColors.whiteTextColor,
-                  fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 13.h),
+              SizedBox(height: 15.h),
               Container(
                 height: 43.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     width: 1,
-                    color: AppColors.whiteTextColor.withOpacity(0.4),
+                    color: Theme.of(context).appBarTheme.titleTextStyle!.color!.withOpacity(0.4),
                   ),
                 ),
                 child: Obx(() {
@@ -72,13 +70,13 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                     maxLengthEnforcement: MaxLengthEnforcement.enforced,
                     obscureText: controller.obscureText.value,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(vertical: 14.h),
-                      prefixIcon: Icon(Icons.lock_outline, color: AppColors.whiteTextColor, size: 16.h,),
+                      contentPadding: EdgeInsets.symmetric(vertical: 11.h),
+                      prefixIcon: Icon(Icons.lock_outline,   color: Theme.of(context).appBarTheme.titleTextStyle?.color, size: 16.h,),
                       suffixIcon: GestureDetector(
                         onTap: controller.toggleObscureText,
                         child: Icon(
                           controller.obscureText.value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                          color: Colors.white,
+                          color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                           size: 16.h,
                         ),
                       ),
@@ -98,11 +96,9 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
               SizedBox(height: 20.h),
               Text(
                 'New Password',
-                style: TextStyle(
+                style: AppTextStyles.weightFour(
                   fontSize: 13.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  color: AppColors.whiteTextColor,
-                  fontWeight: FontWeight.w400,
+                  context: context,
                 ),
               ),
               SizedBox(height: 13.h),
@@ -112,7 +108,7 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     width: 1,
-                    color: AppColors.whiteTextColor.withOpacity(0.4),
+                     color: Theme.of(context).appBarTheme.titleTextStyle!.color!.withOpacity(0.4),
                   ),
                 ),
                 child: Center(
@@ -126,13 +122,13 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                       maxLengthEnforcement: MaxLengthEnforcement.enforced,
                       obscureText: controller.newText.value,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(vertical: 14.h),
-                        prefixIcon: Icon(Icons.lock_outline, color: AppColors.whiteTextColor, size: 16.h,),
+                        contentPadding: EdgeInsets.symmetric(vertical: 11.h),
+                        prefixIcon: Icon(Icons.lock_outline,   color: Theme.of(context).appBarTheme.titleTextStyle?.color, size: 16.h,),
                         suffixIcon: GestureDetector(
                           onTap: controller.toggleNewText,
                           child: Icon(
                             controller.newText.value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                            color: Colors.white,
+                            color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                             size: 16.h,
                           ),
                         ),
@@ -153,11 +149,10 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
               SizedBox(height: 20.h),
               Text(
                 'Confirm Password',
-                style: TextStyle(
+                style: AppTextStyles.weightFour(
+                  context: context,
                   fontSize: 13.sp,
-                  fontFamily: AppTextStyles.fontFamily,
-                  color: AppColors.whiteTextColor,
-                  fontWeight: FontWeight.w400,
+
                 ),
               ),
               SizedBox(height: 13.h),
@@ -167,7 +162,7 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     width: 1,
-                    color: AppColors.whiteTextColor.withOpacity(0.4),
+                    color: Theme.of(context).appBarTheme.titleTextStyle!.color!.withOpacity(0.4),
                   ),
                 ),
                 child: Center(
@@ -182,13 +177,13 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                       maxLengthEnforcement: MaxLengthEnforcement.enforced,
                       obscureText: controller.confirmText.value,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(vertical:14.h),
-                        prefixIcon: Icon(Icons.lock_outline, color: AppColors.whiteTextColor, size: 16.h,),
+                        contentPadding: EdgeInsets.symmetric(vertical:11.h),
+                        prefixIcon: Icon(Icons.lock_outline,   color: Theme.of(context).appBarTheme.titleTextStyle?.color, size: 16.h,),
                         suffixIcon: GestureDetector(
                           onTap: controller.toggleFirmText,
                           child: Icon(
                             controller.confirmText.value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                            color: AppColors.whiteTextColor,
+                            color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                             size: 16.h,
                           ),
                         ),
@@ -212,7 +207,7 @@ class ChangePasswordView extends GetView<ChangepasswordController> {
                 width: 310.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color:AppColors.btnGreyColor,
+                  color:Theme.of(context).appBarTheme.foregroundColor,
                 ),
                 child:Center(
                   child: Text(

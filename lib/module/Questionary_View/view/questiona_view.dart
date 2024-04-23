@@ -1,3 +1,5 @@
+import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
+import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,7 +16,7 @@ class QuestionPage extends GetView<QuestionController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.bgThemeColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: Obx(
           () => Padding(
             padding: EdgeInsets.only(
@@ -34,11 +36,12 @@ class QuestionPage extends GetView<QuestionController> {
                         child: Container(
                           height: 40.h,
                           width: 40.w,
-                          decoration: const BoxDecoration(
+                          decoration:  BoxDecoration(
                             shape: BoxShape.circle,
-                            color: AppColors.whiteTextColor,
+                            color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                           ),
-                          child:  Center(child: SvgPicture.asset("assets/icons/arrow_left.svg",)),
+                          child:  Center(child: SvgPicture.asset("assets/icons/arrow_left.svg",
+                          color: Theme.of(context).primaryTextTheme.titleMedium?.color,)),
                         ),
                       )
                     : SizedBox(
@@ -64,7 +67,7 @@ class QuestionPage extends GetView<QuestionController> {
                   color: AppColors.themeColor,
                   borderRadius: BorderRadius.circular(5),
                   minHeight: 7.h,
-                  backgroundColor: AppColors.borderHintColor,
+                  backgroundColor: Theme.of(context).colorScheme.background,
                 ),
                 SizedBox(
                   height: 25.h,
@@ -114,10 +117,9 @@ class QuestionPage extends GetView<QuestionController> {
                                       gradient: RadialGradient(
                                         radius: 0.9,
                                         colors: [
-                                          AppColors.whiteTextColor
-                                              .withOpacity(0.2),
-                                          AppColors.containerGradientColor
-                                              .withOpacity(0.2)
+                                         Theme.of(context).primaryTextTheme.titleSmall?.color??Colors.red,
+                                         Theme.of(context).primaryTextTheme.titleLarge?.color??Colors.red,
+
                                         ],
                                       ),
                                       borderRadius: BorderRadius.circular(7),
@@ -147,6 +149,9 @@ class QuestionPage extends GetView<QuestionController> {
                                           child: Center(
                                               child: SvgPicture.asset(
                                             controller.options[index].imagePath,
+                                                color: controller.options[index].answer==controller.selectedOption.value
+                                                  ?Theme.of(context).iconTheme.color
+                                                  :Theme.of(context).appBarTheme.titleTextStyle?.color,
                                           )),
                                         )
                                       ],
@@ -168,18 +173,17 @@ class QuestionPage extends GetView<QuestionController> {
                                         child: Text(
 
                                           controller.options[index].answer,
-                                          style: TextStyle(
+                                          style: AppTextStyles.weightEight(
+                                            context: context,
                                             fontSize: 10.sp,
-                                            fontFamily:
-                                                AppTextStyles.fontFamily,
-                                            color: AppColors.whiteTextColor,
-                                            fontWeight: FontWeight.w800,
-                                          ),
+                                            color: controller.options[index].answer==controller.selectedOption.value
+                                              ?AppColors.whiteTextColor
+                                              :Theme.of(context).appBarTheme.titleTextStyle?.color
                                         ),
                                       ),
                                     ),
                                   ),
-                                ],
+                                  ) ],
                               ),
                             ),
                           ));
@@ -193,7 +197,7 @@ class QuestionPage extends GetView<QuestionController> {
                   },
                   child: AuthBtn(
                     btnText: AppTexts.nextText,
-                    btnColor: AppColors.btnGreyColor,
+                    btnColor: Theme.of(context).appBarTheme.foregroundColor??Colors.red,
                     btnBorderRadius: 8,
                     textColor: AppColors.whiteTextColor,
                     btnHeight: 45.h,

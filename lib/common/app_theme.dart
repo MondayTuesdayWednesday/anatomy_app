@@ -7,7 +7,8 @@ class AppTheme {
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     appBarTheme: AppBarTheme(
-      foregroundColor: AppColors.whiteTextColor,
+      surfaceTintColor: AppColors.yellowColor,
+      foregroundColor: AppColors.bgThemeColor,
       backgroundColor: AppColors.bgThemeColor,
       shadowColor: Color(0xFFEFECE2),
       systemOverlayStyle: SystemUiOverlayStyle.dark,
@@ -18,32 +19,40 @@ class AppTheme {
       iconTheme: const IconThemeData(color: AppColors.bgThemeColor),
     ),
     primaryTextTheme: TextTheme(
-      titleMedium: TextStyle(color: AppColors.bgThemeColor),
+      titleMedium: TextStyle(color: AppColors.whiteTextColor),
+      titleSmall: TextStyle(color: AppColors.whiteTextColor.withOpacity(0.5)),
+      titleLarge: TextStyle(color:  AppColors.whiteTextColor
+          .withOpacity(0.5)),
     ),
-    scaffoldBackgroundColor: AppColors.bgThemeColor,
+    scaffoldBackgroundColor: AppColors.lightBgColor,
     colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.yellowColor, background: AppColors.yellowColor),
+        seedColor: AppColors.yellowColor, background: AppColors.whiteTextColor),
     iconTheme: const IconThemeData(color: AppColors.yellowColor),
     cardTheme: CardTheme(color: AppColors.yellowColor),
   );
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
     appBarTheme: AppBarTheme(
-      foregroundColor: Colors.deepOrange,
-      backgroundColor: Colors.grey,
+      surfaceTintColor: AppColors.whiteTextColor,
+      foregroundColor: AppColors.btnGreyColor,
+      backgroundColor: AppColors.themeColor,
       shadowColor: Color(0xFFEFECE2),
       systemOverlayStyle: SystemUiOverlayStyle.light,
       titleTextStyle: TextStyle(
           fontWeight: FontWeight.w700,
           fontSize: 18,
           color: AppColors.whiteTextColor),
-      iconTheme: const IconThemeData(color: AppColors.whiteTextColor),
+      iconTheme: const IconThemeData(color: AppColors.circleContainerColor),
     ),
     colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.bgThemeColor, background: Colors.grey),
+
+        seedColor: AppColors.borderHintColor, background: AppColors.borderHintColor),
     primaryTextTheme: TextTheme(
-      titleMedium: TextStyle(color: AppColors.whiteTextColor),
+      titleMedium: TextStyle(color: AppColors.bgThemeColor),
+      titleSmall: TextStyle(color: AppColors.whiteTextColor.withOpacity(0.2)),
+      titleLarge: TextStyle(color:  AppColors.containerGradientColor
+          .withOpacity(0.2)),
     ),
-    scaffoldBackgroundColor: Colors.grey,
+    scaffoldBackgroundColor: AppColors.bgThemeColor,
     iconTheme: const IconThemeData(color: AppColors.whiteTextColor),
     cardTheme: CardTheme(color: AppColors.blackTextColor),
   );
