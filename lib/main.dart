@@ -1,7 +1,3 @@
-import 'package:anatomy/module/home_module/Widgets/home_drawer.dart';
-import 'package:anatomy/module/home_module/home/binding/home_view_binding.dart';
-import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
-import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'package:anatomy/module/slpash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,14 +28,13 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return GetMaterialApp(
-          themeMode: ThemeMode.light,
+          themeMode: ThemeMode.dark,
           debugShowCheckedModeBanner: false,
           defaultTransition: Transition.leftToRight,
           title: 'Flutter Demo',
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
-          home:  HomePageDrawer(),
-          initialBinding: HomeBinding(),
+          home:  SplashScreen(),
         );
       },
     );

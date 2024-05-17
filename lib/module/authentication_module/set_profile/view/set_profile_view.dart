@@ -1,6 +1,4 @@
 import 'package:anatomy/common/app_assets.dart';
-import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
-import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,10 +11,8 @@ import '../../signup/binding/sign_up_binding.dart';
 import '../../signup/view/sign_up_view.dart';
 import '../../widgets/auth_btn.dart';
 import '../controller/set_profile_controller.dart';
-
 class SetProfileImagePage extends GetView<SetProfileController> {
   const SetProfileImagePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +76,7 @@ class SetProfileImagePage extends GetView<SetProfileController> {
                     decoration:  BoxDecoration(
                       color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                       shape: BoxShape.circle,
-                      boxShadow: [
+                      boxShadow: const[
                         BoxShadow(
                           color: AppColors.cameraShodowColor,
                           blurRadius: 4,

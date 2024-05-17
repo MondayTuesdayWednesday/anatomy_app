@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'app_colors.dart';
-
 class AppTheme {
   AppTheme._();
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
+    canvasColor: AppColors.homeBgOneColor,
+    cardColor: AppColors.homeBgTwoColor,
     appBarTheme: AppBarTheme(
       surfaceTintColor: AppColors.yellowColor,
       foregroundColor: AppColors.bgThemeColor,
@@ -31,6 +32,8 @@ class AppTheme {
     cardTheme: CardTheme(color: AppColors.yellowColor),
   );
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
+    canvasColor: AppColors.homeBgThreeColor,
+    cardColor: AppColors.homeBgFourColor,
     appBarTheme: AppBarTheme(
       surfaceTintColor: AppColors.whiteTextColor,
       foregroundColor: AppColors.btnGreyColor,
@@ -54,6 +57,6 @@ class AppTheme {
     ),
     scaffoldBackgroundColor: AppColors.bgThemeColor,
     iconTheme: const IconThemeData(color: AppColors.whiteTextColor),
-    cardTheme: CardTheme(color: AppColors.blackTextColor),
+    cardTheme: const CardTheme(color: AppColors.blackTextColor),
   );
 }

@@ -20,4 +20,8 @@ class AppColors {
   static const containerGradientColor=Color(0xff999999);
   static const circleContainerColor=Color(0xffE1EBEC);
   static const lightBgColor=Color(0xffF3F5EF);
+  static const homeBgOneColor=Color(0xffDEE1D7);
+  static const homeBgTwoColor=Color(0xffC8CCC1);
+  static const homeBgThreeColor=Color(0xff435053);
+  static const homeBgFourColor=Color(0xff3F494B);
 }

@@ -38,13 +38,15 @@ class Button extends StatelessWidget {
             width: 50.w,
             child: Text(text??"",
               textAlign: TextAlign.center,
-              style: TextStyle(
-              color: AppColors.whiteTextColor,
-              fontSize: 9.5.sp,
-              fontWeight: FontWeight.w400,
-              fontFamily: AppTextStyles.fontFamily
-            ),),
-          )
+              style: AppTextStyles.weightFour(
+                context: context,
+                fontSize: 9.5.sp,
+                height: 1.h
+
+              ),
+            ),
+          ),
+
         ],
       ),
     );

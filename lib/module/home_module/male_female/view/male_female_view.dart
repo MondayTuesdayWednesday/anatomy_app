@@ -13,7 +13,7 @@ class MaleFemaleView extends GetView<MaleFemaleController>{
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: AppColors.bgThemeColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Obx(() => Row(
 
 
@@ -40,7 +40,7 @@ class MaleFemaleView extends GetView<MaleFemaleController>{
                             onTap: () {
                               Get.back();
                             },
-                            child: SvgPicture.asset(AppAssets.arrowBack),),
+                            child: SvgPicture.asset(AppAssets.arrowBack , color: Theme.of(context).appBarTheme.titleTextStyle?.color,),),
                           SizedBox(
                             width: 70.w,
                             child: Row(
@@ -48,13 +48,13 @@ class MaleFemaleView extends GetView<MaleFemaleController>{
                               children: [
                                 Icon(
                                   Icons.add_circle_outline,
-                                  color: AppColors.whiteTextColor,
+                                  color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                                   size: 24.h,
 
                                 ),
                                 Icon(
                                   Icons.do_not_disturb_on_outlined,
-                                  color: AppColors.whiteTextColor,
+                                  color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                                   size: 24.h,
 
                                 ),
@@ -63,7 +63,7 @@ class MaleFemaleView extends GetView<MaleFemaleController>{
                           ),
                           Icon(
                             Icons.refresh,
-                            color: AppColors.whiteTextColor,
+                            color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                             size: 24.h,
 
                           ),
@@ -79,7 +79,7 @@ class MaleFemaleView extends GetView<MaleFemaleController>{
                       child: Icon(Icons.keyboard_double_arrow_left ,
                         size: 26.h,
                         weight: 100.h,
-                        color: Colors.white,),
+                        color: Theme.of(context).appBarTheme.titleTextStyle?.color,),
                     ),
 
 
@@ -136,7 +136,7 @@ class MaleFemaleView extends GetView<MaleFemaleController>{
                                 child: Icon(
                                   Icons.menu,
                                   size: 30.h,
-                                  color: Colors.white,
+                                  color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                                 ),
                               ),
                             ),

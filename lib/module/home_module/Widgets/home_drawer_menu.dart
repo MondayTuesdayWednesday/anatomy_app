@@ -1,4 +1,4 @@
-import 'package:anatomy/common/app_colors.dart';
+
 import 'package:anatomy/common/app_text_styles.dart';
 import 'package:anatomy/module/profile_module/profile_screen/binding/profile_binding.dart';
 import 'package:anatomy/module/profile_module/profile_screen/view/profile_view.dart';
@@ -26,22 +26,22 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
               }, icon: Icon(
                 Icons.close,
                 size: 22.h,
-                color: AppColors.whiteTextColor,
+                color: Theme.of(context).appBarTheme.titleTextStyle?.color,
               )),
-              Spacer(),
-              Text("Discover", style: TextStyle(
-                  fontFamily: AppTextStyles.fontFamily,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15.h,
-                  color: AppColors.whiteTextColor
-              ),)
+              const Spacer(),
+              Text("Discover",
+                style: AppTextStyles.weightSeven(
+                  context: context,
+                  fontSize: 17.sp,
+                ),
+              )
             ],
           ),
           SizedBox(
             height: 20.h,
           ),
       
-          draweritem(Icons.circle_outlined, 'All Models', () {},),
+          draweritem(Icons.circle_outlined, 'All Models', () {} , context,),
       
           Obx(() {
             return Column(
@@ -52,7 +52,7 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
                   'Preferences +',
                       () {
                     controller.togglePreferences();
-                  },
+                  }, context,
                 ),
                 if (controller.isPreferencesExpanded.value)
                   ...[
@@ -60,60 +60,58 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
                       height: 10
                           .h, // Adjust the spacing between "Preferences+" and sub-items
                     ),
-                  subitem("-   Head & Neck", () { }),
-                  subitem("-   Upper Limb", () { }),
-                  subitem("-   Lower Limb", () { }),
-                  subitem("-   Thorax", () { }),
-                  subitem("-   Abdomen ", () { }),
-                  subitem("-   Pelvis", () { }),
-                  subitem("-   Organs", () { }),
+                  subitem("-   Head & Neck", () { }, context),
+                  subitem("-   Upper Limb", () { }, context),
+                  subitem("-   Lower Limb", () { },context),
+                  subitem("-   Thorax", () { }, context),
+                  subitem("-   Abdomen ", () { }, context),
+                  subitem("-   Pelvis", () { }, context),
+                  subitem("-   Organs", () { }, context),
                   ],
               ],
             );
           }),
 
       
-          draweritem(Icons.favorite_outline, 'Saved', () {}),
+          draweritem(Icons.favorite_outline, 'Saved', () {} , context),
       
           draweritem(Icons.settings_outlined, 'Settings', () {
             Get.to( const ProfileView() , binding:  ProfileBinding());
-          }),
+          }, context),
 
           draweritem(Icons.help_outline, 'Help', () {
       
-          })
+          }, context)
         ],
       ),
     );
   }
 
-  Widget draweritem(IconData icon, String title, VoidCallback callback) {
+  Widget draweritem(IconData icon, String title, VoidCallback callback ,
+       BuildContext context) {
     return ListTile(
       leading: Icon(
         icon,
         size: 20,
-        color: AppColors.whiteTextColor,
+        color: Theme.of(context).appBarTheme.titleTextStyle?.color,
       ),
       title: Text(
         title,
-        style: TextStyle(
-            color: AppColors.whiteTextColor,
-            fontFamily: AppTextStyles.fontFamily,
-            fontWeight: FontWeight.w400,
-            fontSize: 14.sp),
+        style: AppTextStyles.weightFour(
+          context: context,
+          fontSize: 14.sp,
+        ),
       ),
       onTap: callback,
     );
   }
-  Widget subitem(String title, VoidCallback callback){
+  Widget subitem(String title, VoidCallback callback , BuildContext context){
     return  Padding(
       padding:  EdgeInsets.only(left: 6.w),
       child: TextButton(onPressed: callback, child: Text(title,
-        style: TextStyle(
-        color: AppColors.whiteTextColor,
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w400,
-        fontFamily: AppTextStyles.fontFamily
+        style: AppTextStyles.weightFour(
+          context: context,
+          fontSize: 14.sp,
         ),)),
     );
   }

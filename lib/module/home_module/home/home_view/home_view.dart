@@ -15,7 +15,7 @@ class HomePageView extends GetView<HomeViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgThemeColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding:  EdgeInsets.symmetric(horizontal: 18.w),
         child: Column(
@@ -28,20 +28,22 @@ class HomePageView extends GetView<HomeViewController> {
               fontWeight: FontWeight.w700,
               fontFamily: AppTextStyles.fontFamily
             ),),
-            SizedBox(height: 3.h,),
+            SizedBox(height: 5.h,),
             Text("Dr. John Murphy",
-            style: TextStyle(
-              color: AppColors.whiteTextColor,
-              fontFamily: AppTextStyles.fontFamily,
-              fontWeight: FontWeight.w700,
-              fontSize: 18.sp
-            ),),
+            style: AppTextStyles.weightSeven(
+              context: context,
+              fontSize: 18.sp,
+            ),
+            ),
             SizedBox(height: 25.h,),
             Row(
               children: [
                 GestureDetector(
                     onTap: controller.zoomDrawerController.toggle,
-                    child: Icon(Icons.sort_sharp,color: AppColors.whiteTextColor,size: 24.h,)),
+                    child: Icon(Icons.sort_sharp,
+                      color: Theme.of(context).appBarTheme.titleTextStyle?.color,
+                        size: 24.h
+                    )),
                 SizedBox(width: 15.w,),
                 Container(
                   height: 37.h,
@@ -49,8 +51,9 @@ class HomePageView extends GetView<HomeViewController> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     border: Border.all(color: AppColors.whiteTextColor,width: 0.5),
-                    boxShadow: const [
+                    boxShadow:  const [
                       BoxShadow(
+                        blurStyle: BlurStyle.outer,
                         color: Color(0x3F000000),
                         blurRadius: 4,
                         offset: Offset(0, 1),
@@ -77,16 +80,15 @@ class HomePageView extends GetView<HomeViewController> {
                 )
               ],
             ),
-            SizedBox(height: 25.h,),
+            SizedBox(height: 27.h,),
             Text(
               'Select Model',
-              style: TextStyle(
-                color:AppColors.whiteTextColor,
+              style: AppTextStyles.weightSeven(
+                context: context,
                 fontSize: 19.sp,
-                fontFamily: AppTextStyles.fontFamily,
-                fontWeight: FontWeight.w700,
               ),
             ),
+
 
             Expanded(child: GridView.builder(
               itemCount: controller.imageList.length,
@@ -119,9 +121,12 @@ class HomePageView extends GetView<HomeViewController> {
                       height: 174.64,
                       decoration: BoxDecoration(
                         gradient: RadialGradient(
-                          center: const Alignment(0, 1),
-                          radius: 0,
-                          colors: [AppColors.whiteTextColor.withOpacity(0.2), const Color(0xFF999999).withOpacity(0.2)],
+                          radius: 0.9,
+                          colors: [
+                            Theme.of(context).primaryTextTheme.titleSmall?.color??Colors.red,
+                            Theme.of(context).primaryTextTheme.titleLarge?.color??Colors.red,
+
+                          ],
                         ),
                         borderRadius: BorderRadius.circular(7),
                         border: Border.all(color: AppColors.whiteTextColor,width: 2),
@@ -148,7 +153,7 @@ class HomePageView extends GetView<HomeViewController> {
                           foreground: Paint()
                             ..style = PaintingStyle.stroke
                             ..strokeWidth = 1
-                            ..color = AppColors.themeColor,
+                            ..color = Theme.of(context).appBarTheme.backgroundColor??Colors.red,
                         ),
                       ),
                       // Solid text as fill.
@@ -156,7 +161,7 @@ class HomePageView extends GetView<HomeViewController> {
                       controller.textList[index],
                         style: TextStyle(
                           fontSize: 15.sp,
-                          color: AppColors.whiteTextColor,
+                          color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                         ),
                       ),
                     ],

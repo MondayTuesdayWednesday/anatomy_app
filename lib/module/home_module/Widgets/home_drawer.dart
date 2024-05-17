@@ -13,7 +13,7 @@ class HomePageDrawer extends GetView<HomeViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:AppColors.bgThemeColor,
+      backgroundColor:Theme.of(context).scaffoldBackgroundColor,
       body: GetBuilder<HomeViewController>(
         builder: (_) =>  ZoomDrawer(
           clipMainScreen: false,
@@ -33,8 +33,8 @@ class HomePageDrawer extends GetView<HomeViewController> {
                 offset: const Offset(0.0, 0.4)
             )],
           angle: 0.0,
-            shadowLayer1Color: const Color(0xff435053),
-            shadowLayer2Color: const Color(0xff3F494B).withOpacity(0.96),
+            shadowLayer1Color:  Theme.of(context).cardColor,
+            shadowLayer2Color:  Theme.of(context).canvasColor,
           slideWidth: MediaQuery.of(context).size.width * 0.68,
         )
 

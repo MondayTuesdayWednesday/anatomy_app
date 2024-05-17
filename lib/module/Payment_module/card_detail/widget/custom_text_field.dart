@@ -7,7 +7,7 @@ class CustomTextField extends StatelessWidget{
   TextEditingController? controller;
   String? text;
   String? hintText;
-  TextInputType? keyboardType;
+  TextInputType?  keyboardType;
   CustomTextField({super.key, this.controller,this.text,this.hintText,this.keyboardType});
 
   @override
