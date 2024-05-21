@@ -12,6 +12,10 @@ class AppTexts {
   static const String emailText = 'Email';
   static const String passwordText = 'Password';
   static const String enterPasswordText = 'Enter your password';
+  static const String doNotHaveAccountText = "Don't have an account";
+  static const String passwordEnterText="Enter Password";
+  static const String confirmEmailText="Confirm your email";
+  static const String passwordConfirmText="Confirm Password";
   static const String enterNameText = 'Enter your name';
   static const String enterEmailText = 'Enter your email';
   static const String passwordHelperText = '*Password must be 6 or more characters';

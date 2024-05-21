@@ -1,5 +1,12 @@
 
 import 'package:anatomy/common/app_text_styles.dart';
+import 'package:anatomy/module/home_module/Widgets/home_drawer.dart';
+import 'package:anatomy/module/home_module/head_nack/binding/head_neck_binding.dart';
+import 'package:anatomy/module/home_module/head_nack/view/head_neck_page.dart';
+import 'package:anatomy/module/home_module/upper_limb/binding/upper_limb_binding.dart';
+import 'package:anatomy/module/home_module/upper_limb/view/upper_limb_page.dart';
+import 'package:anatomy/module/profile_module/help_screen/binding/help_page_binding.dart';
+import 'package:anatomy/module/profile_module/help_screen/view/help_page.dart';
 import 'package:anatomy/module/profile_module/profile_screen/binding/profile_binding.dart';
 import 'package:anatomy/module/profile_module/profile_screen/view/profile_view.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +48,9 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
             height: 20.h,
           ),
       
-          draweritem(Icons.circle_outlined, 'All Models', () {} , context,),
+          draweritem(Icons.circle_outlined, 'All Models', () {
+            controller.toggleDrawer();
+          } , context,),
       
           Obx(() {
             return Column(
@@ -60,8 +69,12 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
                       height: 10
                           .h, // Adjust the spacing between "Preferences+" and sub-items
                     ),
-                  subitem("-   Head & Neck", () { }, context),
-                  subitem("-   Upper Limb", () { }, context),
+                  subitem("-   Head & Neck", () {
+                    Get.to(HeadNeckPage(),binding: HeadNeckBinding());
+                  }, context),
+                  subitem("-   Upper Limb", () {
+                    Get.to(UpperLimbPage(),binding: UpperLimbBinding());
+                  }, context),
                   subitem("-   Lower Limb", () { },context),
                   subitem("-   Thorax", () { }, context),
                   subitem("-   Abdomen ", () { }, context),
@@ -71,16 +84,13 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
               ],
             );
           }),
-
-      
-          draweritem(Icons.favorite_outline, 'Saved', () {} , context),
       
           draweritem(Icons.settings_outlined, 'Settings', () {
             Get.to( const ProfileView() , binding:  ProfileBinding());
           }, context),
 
           draweritem(Icons.help_outline, 'Help', () {
-      
+            Get.to(HelpPage(),binding: HelppageBinding());
           }, context)
         ],
       ),

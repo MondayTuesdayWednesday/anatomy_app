@@ -3,6 +3,7 @@ import 'package:anatomy/common/app_assets.dart';
 import 'package:anatomy/common/app_colors.dart';
 import 'package:anatomy/common/app_text_styles.dart';
 import 'package:anatomy/common/app_texts.dart';
+import 'package:anatomy/module/authentication_module/signin/binding/sign_in_binding.dart';
 import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
 import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +14,13 @@ import 'package:get/get.dart';
 
 import '../authentication_module/set_profile/binding/set_profile_binding.dart';
 import '../authentication_module/set_profile/view/set_profile_view.dart';
+import '../authentication_module/signin/view/sign_in_view.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 3), () {
-      Get.off(() => const SetProfileImagePage(), binding: SetProfileBinding());
+      Get.off(() =>SignInPage(),binding: SignInBinding());
     });
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,

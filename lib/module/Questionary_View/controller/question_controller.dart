@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../common/app_assets.dart';
 import '../question_done/questionary_done_view.dart';
-
 class QuestionController extends GetxController {
   var topicIndex = 0.obs;
   var selectedOption = ''.obs;
@@ -14,7 +13,6 @@ class QuestionController extends GetxController {
     'What are you studying?',
     'Tell us your interests',
     'When are you due to graduate?',
-
   ];
   List<GridItem> options = [
     GridItem(answer: 'Nursing', imagePath: 'assets/icons/healthicons_nurse.svg'),
@@ -22,10 +20,10 @@ class QuestionController extends GetxController {
     GridItem(answer: 'Physical therapy', imagePath: 'assets/icons/mans.svg'),
     GridItem(answer: 'Dentistry', imagePath: 'assets/icons/teeth.svg')
   ];
+
   void selectOption(String option) {
     selectedOption.value = option;
     isOptionSelected.value = true;
-    print("object");
   }
 
   void goToPreviousTopic() {
@@ -42,23 +40,29 @@ class QuestionController extends GetxController {
   void nextTopic() {
     if (isOptionSelected.value) {
       if (topicIndex.value < topics.length - 1) {
-        topicIndex.value++ ;
+        topicIndex.value++;
         selectedOption.value = '';
         isOptionSelected.value = false;
         answeredCount.value++;
       } else {
-        // Handle the end of the topics list
-        // For example:
         Get.off(const QuestionDoneView());
       }
+    } else {
+      Get.snackbar(
+        'No Option Selected',
+        'Please select your answer',
+        snackPosition: SnackPosition.TOP,
+        backgroundColor: Colors.transparent,
+        colorText: Colors.white,
+      );
     }
   }
 
   double calculateProgress() {
     return (answeredCount.value) / topics.length;
   }
-
 }
+
 class GridItem {
   final String answer;
   final String imagePath;

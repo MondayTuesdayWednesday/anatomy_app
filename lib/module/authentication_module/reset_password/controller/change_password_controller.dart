@@ -17,4 +17,10 @@ class ResetPasswordController extends GetxController{
   toggleCodeVisibility() {
     isCodeVisible.value = !isCodeVisible.value;
   }
+
+  RxBool isContainerGrey = false.obs;
+
+  void changeContainerColor( ) {
+    isContainerGrey.value = newPasswordController.text.isNotEmpty && passwordController.text.isNotEmpty;
+  }
 }

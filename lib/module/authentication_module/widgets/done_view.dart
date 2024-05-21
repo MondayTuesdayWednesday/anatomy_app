@@ -84,7 +84,7 @@ class DoneView extends StatelessWidget {
               ),
             ),
           ),
-         Spacer(),
+         const Spacer(),
           GestureDetector(
             onTap: () => onPressed(),
             child: AuthBtn(

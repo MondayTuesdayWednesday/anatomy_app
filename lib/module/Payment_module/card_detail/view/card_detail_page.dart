@@ -4,16 +4,11 @@ import 'package:anatomy/module/Payment_module/welcome/payment_done_view.dart';
 import 'package:anatomy/module/authentication_module/widgets/auth_btn.dart';
 import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
 import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../../../../common/app_text_styles.dart';
 import '../widget/custom_text_field.dart';
-
 class CardDetailPage extends GetView<CardDetailController> {
   @override
   Widget build(BuildContext context) {
@@ -68,7 +63,17 @@ class CardDetailPage extends GetView<CardDetailController> {
               SizedBox(height: 120.w,),
               GestureDetector(
                 onTap: (){
-                  Get.off(PaymentDoneView());
+                  if (controller.areFieldsFilled()) {
+                    Get.off(const PaymentDoneView());
+                  } else {
+                    Get.snackbar(
+                      'Incomplete Form',
+                      'Please complete all fields',
+                      snackPosition: SnackPosition.TOP,
+                      backgroundColor: Colors.transparent,
+                      colorText: Colors.white,
+                    );
+                  }
                 },
                 child: AuthBtn(
                     btnText: "Next",

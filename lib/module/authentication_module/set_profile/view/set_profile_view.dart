@@ -11,8 +11,10 @@ import '../../signup/binding/sign_up_binding.dart';
 import '../../signup/view/sign_up_view.dart';
 import '../../widgets/auth_btn.dart';
 import '../controller/set_profile_controller.dart';
+
 class SetProfileImagePage extends GetView<SetProfileController> {
   const SetProfileImagePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +78,7 @@ class SetProfileImagePage extends GetView<SetProfileController> {
                     decoration:  BoxDecoration(
                       color: Theme.of(context).appBarTheme.titleTextStyle?.color,
                       shape: BoxShape.circle,
-                      boxShadow: const[
+                      boxShadow: const [
                         BoxShadow(
                           color: AppColors.cameraShodowColor,
                           blurRadius: 4,
@@ -101,7 +103,7 @@ class SetProfileImagePage extends GetView<SetProfileController> {
               height: 150.h,
             ),
             GestureDetector(
-              onTap: () {  Get.off(  SignUpPage(), binding: SignUpBinding());
+              onTap: () {  Get.off(  const SignUpPage(), binding: SignUpBinding());
     },
 
               child: AuthBtn(

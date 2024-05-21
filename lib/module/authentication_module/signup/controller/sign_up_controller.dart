@@ -15,4 +15,11 @@ class SignUpController extends GetxController {
   IconData getVisibilityIcon() {
     return isPasswordVisible.value ? Icons.visibility_off : Icons.visibility;
   }
+
+
+  RxBool isContainerGrey = false.obs;
+
+  void changeContainerColor( ) {
+    isContainerGrey.value = nameController.text.isNotEmpty && emailController.text.isNotEmpty && passwordController.text.isNotEmpty;
+  }
 }

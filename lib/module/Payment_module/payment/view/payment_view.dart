@@ -36,8 +36,8 @@ class PaymentView extends GetView<PaymentController> {
                   Get.back();
                 },
                 child:  Container(
-                  height: 40.h,
-                  width: 40.w,
+                  height: 35.h,
+                  width: 35.w,
                   decoration:  BoxDecoration(
                     shape: BoxShape.circle,
                     color: Theme.of(context).appBarTheme.titleTextStyle?.color,

@@ -1,5 +1,3 @@
-import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
-import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,10 +7,8 @@ import '../../../common/app_text_styles.dart';
 import '../../../common/app_texts.dart';
 import '../../authentication_module/widgets/auth_btn.dart';
 import '../controller/question_controller.dart';
-
 class QuestionPage extends GetView<QuestionController> {
   const QuestionPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +16,10 @@ class QuestionPage extends GetView<QuestionController> {
         body: Obx(
           () => Padding(
             padding: EdgeInsets.only(
-              top: 40.h,
+              top: 45.h,
               left: 35.w,
               right: 35.w,
-              bottom: 40.h
+              bottom: 35.h
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,8 +30,8 @@ class QuestionPage extends GetView<QuestionController> {
                           controller.goToPreviousTopic();
                         },
                         child: Container(
-                          height: 40.h,
-                          width: 40.w,
+                          height: 35.h,
+                          width: 35.w,
                           decoration:  BoxDecoration(
                             shape: BoxShape.circle,
                             color: Theme.of(context).appBarTheme.titleTextStyle?.color,
@@ -45,14 +41,14 @@ class QuestionPage extends GetView<QuestionController> {
                         ),
                       )
                     : SizedBox(
-                        height: 45.h,
+                        height: 35.h,
                       ),
                 SizedBox(
                   height: 5.h,
                 ),
                 Center(
                   child: Text(
-                    "0${controller.topicIndex.value + 1}/0${controller.topics.length+1}",
+                    "0${controller.topicIndex.value + 1}/ 0${controller.topics.length}",
                     style: AppTextStyles.weightSix(
                       context: context,
                       fontSize: 14.sp,
@@ -87,8 +83,7 @@ class QuestionPage extends GetView<QuestionController> {
                   ),
                 ),
                 SizedBox(
-                    height: 20.h),
-                // Options
+                    height: 20.h), // Options
                 SizedBox(
                   height: 310.h,
                   child: GridView.builder(
@@ -96,8 +91,8 @@ class QuestionPage extends GetView<QuestionController> {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 30.0,
-                            mainAxisSpacing: 18.0,
-                            childAspectRatio: 1.1),
+                            mainAxisSpacing: 30.0,
+                            childAspectRatio: 1.15),
                     itemCount: controller.options.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Obx(() => GestureDetector(
@@ -142,25 +137,22 @@ class QuestionPage extends GetView<QuestionController> {
                                     child: Column(
 
                                       children: [
-                                        Container(
-                                          height: 60.h,
-                                          width: 85.w,
-                                          decoration: const BoxDecoration(),
-                                          child: Center(
-                                              child: SvgPicture.asset(
-                                            controller.options[index].imagePath,
-                                                color: controller.options[index].answer==controller.selectedOption.value
-                                                  ?Theme.of(context).iconTheme.color
-                                                  :Theme.of(context).appBarTheme.titleTextStyle?.color,
-                                          )),
-                                        )
+                                        SizedBox(height: 10.h,),
+                                        SvgPicture.asset(
+                                          fit: BoxFit.scaleDown,
+                                          height: 50.h,
+                                          controller.options[index].imagePath,
+                                          color: controller.options[index].answer==controller.selectedOption.value
+                                            ?Theme.of(context).iconTheme.color
+                                            :Theme.of(context).appBarTheme.titleTextStyle?.color,
+                                                                                  )
                                       ],
                                     ),
                                   ),
                                   Positioned(
                                     bottom: 13.h,
                                     child: Container(
-                                      height: 32.h,
+                                      height: 27.h,
                                       width: 150.w,
                                       decoration: BoxDecoration(
                                         color: controller.options[index].answer ==
@@ -171,7 +163,6 @@ class QuestionPage extends GetView<QuestionController> {
                                       ),
                                       child: Center(
                                         child: Text(
-
                                           controller.options[index].answer,
                                           style: AppTextStyles.weightEight(
                                             context: context,
@@ -197,7 +188,7 @@ class QuestionPage extends GetView<QuestionController> {
                   },
                   child: AuthBtn(
                     btnText: AppTexts.nextText,
-                    btnColor: Theme.of(context).appBarTheme.foregroundColor??Colors.red,
+                    btnColor: controller.isOptionSelected.value?AppColors.themeColor :AppColors.btnGreyColor,
                     btnBorderRadius: 8,
                     textColor: AppColors.whiteTextColor,
                     btnHeight: 45.h,
