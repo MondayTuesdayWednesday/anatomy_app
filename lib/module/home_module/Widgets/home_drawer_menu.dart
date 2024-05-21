@@ -1,8 +1,18 @@
 
 import 'package:anatomy/common/app_text_styles.dart';
 import 'package:anatomy/module/home_module/Widgets/home_drawer.dart';
+import 'package:anatomy/module/home_module/abdomen/binding/abdomen_binding.dart';
+import 'package:anatomy/module/home_module/abdomen/view/abdomen_page.dart';
 import 'package:anatomy/module/home_module/head_nack/binding/head_neck_binding.dart';
 import 'package:anatomy/module/home_module/head_nack/view/head_neck_page.dart';
+import 'package:anatomy/module/home_module/lower_limb/binding/lower_limb_binding.dart';
+import 'package:anatomy/module/home_module/lower_limb/view/lower_limb_page.dart';
+import 'package:anatomy/module/home_module/organs/binding/organs_binding.dart';
+import 'package:anatomy/module/home_module/organs/view/organs_page.dart';
+import 'package:anatomy/module/home_module/pelvis/binding/pelvis_binding.dart';
+import 'package:anatomy/module/home_module/pelvis/view/pelvis_page.dart';
+import 'package:anatomy/module/home_module/thorax/binding/thorax_binding.dart';
+import 'package:anatomy/module/home_module/thorax/view/thorax_page.dart';
 import 'package:anatomy/module/home_module/upper_limb/binding/upper_limb_binding.dart';
 import 'package:anatomy/module/home_module/upper_limb/view/upper_limb_page.dart';
 import 'package:anatomy/module/profile_module/help_screen/binding/help_page_binding.dart';
@@ -75,11 +85,21 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
                   subitem("-   Upper Limb", () {
                     Get.to(UpperLimbPage(),binding: UpperLimbBinding());
                   }, context),
-                  subitem("-   Lower Limb", () { },context),
-                  subitem("-   Thorax", () { }, context),
-                  subitem("-   Abdomen ", () { }, context),
-                  subitem("-   Pelvis", () { }, context),
-                  subitem("-   Organs", () { }, context),
+                  subitem("-   Lower Limb", () {
+                    Get.to(LowerLimbPage(),binding: LowerLimbBinding());
+                  },context),
+                  subitem("-   Thorax", () {
+                    Get.to(ThoraxPage(),binding: ThoraxBinding());
+                  }, context),
+                  subitem("-   Abdomen ", () {
+                    Get.to(AbdomenPage(),binding: AbdomenBinding());
+                  }, context),
+                  subitem("-   Pelvis", () {
+                      Get.to(PelvisPage(),binding: PelvisBinding());
+                  }, context),
+                  subitem("-   Organs", () {
+                    Get.to(OrgansPage(),binding: OrgansBinding());
+                  }, context),
                   ],
               ],
             );
