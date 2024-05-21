@@ -9,6 +9,8 @@ import 'package:get/get.dart';
 import '../../../../common/app_assets.dart';
 
 class RegionalAnatomyPage extends GetView<RegionalAnatomyController>{
+  const RegionalAnatomyPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,28 +60,74 @@ class RegionalAnatomyPage extends GetView<RegionalAnatomyController>{
               itemBuilder: (context, index) {
               return Column(
                 children: [
-                  Container(
-                    width: 121.w,
-                    height: 121.h,
-                    decoration: BoxDecoration(
-                      gradient: RadialGradient(
-                        center: const Alignment(0, 1),
-                        radius: 0,
-                        colors: [AppColors.whiteTextColor.withOpacity(0.2), const Color(0xFF999999).withOpacity(0.2)],
+                  GestureDetector(
+                     onTap: () {
+                       switch(index){
+                         case 0:
+                           {
+
+                           }
+                         case 1:
+                           {
+
+                           }
+                         case 2:
+                           {
+
+                           }
+                         case 3:
+                           {
+
+                           }
+                         case 4:
+                           {
+
+                           }
+                         case 5:
+                           {
+
+                           }
+                         case 6:
+                           {
+
+                           }
+                         case 7:
+                           {
+
+                           }
+                         case 8:
+                           {
+
+                           }
+                         case 9:
+                           {
+
+                           }
+                       }
+                     },
+                    child: Container(
+                      width: 121.w,
+                      height: 121.h,
+                      decoration: BoxDecoration(
+                        gradient: RadialGradient(
+                          center: const Alignment(0, 1),
+                          radius: 0,
+                          colors: [AppColors.whiteTextColor.withOpacity(0.2), const Color(0xFF999999).withOpacity(0.2)],
+                        ),
+                        borderRadius: BorderRadius.circular(7),
+                        border: Border.all(color: AppColors.whiteTextColor,width: 2),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurStyle: BlurStyle.outer,
+                            color: AppColors.whiteTextColor,
+                            blurRadius: 4,
+                            offset: Offset(0, 0),
+                            spreadRadius: 0,
+                          )
+                        ],
                       ),
-                      borderRadius: BorderRadius.circular(7),
-                      border: Border.all(color: AppColors.whiteTextColor,width: 2),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurStyle: BlurStyle.outer,
-                          color: AppColors.whiteTextColor,
-                          blurRadius: 4,
-                          offset: Offset(0, 0),
-                          spreadRadius: 0,
-                        )
-                      ],
+                      child: Image.asset(controller.imageList[index]),
                     ),
-                    child: Image.asset(controller.imageList[index]),
                   ),
                   SizedBox(height: 12.h,),
                   Stack(

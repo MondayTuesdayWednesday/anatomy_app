@@ -10,7 +10,6 @@ class HomeViewController extends GetxController {
   }
 
   void toggleDrawer() {
-    print("Toggle drawer");
     zoomDrawerController.toggle?.call();
     update();
   }
@@ -19,11 +18,20 @@ class HomeViewController extends GetxController {
     "Male",
     "Female",
     "Regional Anatomy",
+    "Surface Anatomy",
+    "Cross sectional",
+    "Video Lectures",
+    "Virtual Dissection",
   ];
   List<String> imageList = [
     "assets/images/male.png",
     "assets/images/female.png",
     "assets/images/regional.png",
+    "assets/images/surface_anatomy.png",
+    "assets/images/cross_sectional.png",
+    "assets/images/video_lectures.png",
+    "assets/images/virtual_dissection.png",
+
 
   ];
 

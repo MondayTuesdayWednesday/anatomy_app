@@ -1,12 +1,14 @@
 import 'package:anatomy/common/app_text_styles.dart';
-import 'package:anatomy/module/home_module/male_female/binding/male_female_binding.dart';
-import 'package:anatomy/module/home_module/male_female/view/male_female_view.dart';
+import 'package:anatomy/module/home_module/female_anatomy/binding/female_binding.dart';
+import 'package:anatomy/module/home_module/female_anatomy/view/female_view.dart';
 import 'package:anatomy/module/home_module/regional_anatomy/binding/regional_anatomy_binding.dart';
 import 'package:anatomy/module/home_module/regional_anatomy/view/regional_anatomy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../../common/app_colors.dart';
+import '../../male_anatomy/binding/male_binding.dart';
+import '../../male_anatomy/view/male_view.dart';
 import '../controller/home_view_controller.dart';
 
 class HomePageView extends GetView<HomeViewController> {
@@ -88,6 +90,7 @@ class HomePageView extends GetView<HomeViewController> {
                 fontSize: 19.sp,
               ),
             ),
+            SizedBox(height: 10.h,),
 
 
             Expanded(child: GridView.builder(
@@ -105,14 +108,27 @@ class HomePageView extends GetView<HomeViewController> {
                       switch(index){
                         case 0:
                           {
-              Get.to(const MaleFemaleView(),binding: MaleFemaleBinding());
+              Get.to(const MaleView(),binding: MaleBinding());
                           }
                         case 1:
                           {
-                            Get.to( const MaleFemaleView(),binding: MaleFemaleBinding());}
+                            Get.to(const FemaleView() , binding: FemaleBinding());
+                          }
                         case 2:
                           {
-                            Get.to(RegionalAnatomyPage(),binding: RegionalAnatomyBinding());
+                            Get.to(const RegionalAnatomyPage(),binding: RegionalAnatomyBinding());
+                          }
+                        case 3:
+                          {
+                          }
+                        case 4:
+                          {
+                          }
+                        case 5:
+                          {
+                          }
+                        case 6:
+                          {
                           }
                       }
                     },

@@ -1,13 +1,6 @@
 import 'package:anatomy/module/home_module/Widgets/home_drawer.dart';
 import 'package:anatomy/module/home_module/home/binding/home_view_binding.dart';
-import 'package:anatomy/module/home_module/lower_limb/binding/lower_limb_binding.dart';
-import 'package:anatomy/module/home_module/lower_limb/view/lower_limb_page.dart';
-import 'package:anatomy/module/home_module/organs/binding/organs_binding.dart';
-import 'package:anatomy/module/home_module/organs/view/organs_page.dart';
-import 'package:anatomy/module/home_module/pelvis/binding/pelvis_binding.dart';
-import 'package:anatomy/module/home_module/pelvis/view/pelvis_page.dart';
-import 'package:anatomy/module/home_module/thorax/binding/thorax_binding.dart';
-import 'package:anatomy/module/home_module/thorax/view/thorax_page.dart';
+import 'package:anatomy/module/slpash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,8 +36,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
-          home:   (),
-          initialBinding: LowerLimbBinding(),
+          home:   SplashScreen(),
         );
       },
     );
