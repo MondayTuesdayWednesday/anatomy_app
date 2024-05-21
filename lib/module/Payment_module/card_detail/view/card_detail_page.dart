@@ -6,6 +6,7 @@ import 'package:anatomy/module/profile_module/appearance/binding/appearance_bind
 import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../../common/app_text_styles.dart';
 import '../widget/custom_text_field.dart';
@@ -16,22 +17,35 @@ class CardDetailPage extends GetView<CardDetailController> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 27.w,right: 27.w,bottom: 40.h),
+          padding: EdgeInsets.only(left: 27.w,right: 27.w,bottom: 40.h,top: 40.h),
           child: Column(
             children: [
-              SizedBox(
-                height: 90.h,
-              ),
-              GestureDetector(
-                onTap: (){
-                  Get.to(AppearancePage(),binding: AppearanceBinding());
-                },
-                child: Text(
-                  "Card Detail",
-                  style: AppTextStyles.weightEight(
-                    context: context,
-                      fontSize: 22.sp),
+              Align(
+                alignment: Alignment.topLeft,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child:  Container(
+                    height: 35.h,
+                    width: 35.w,
+                    decoration:  BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Theme.of(context).appBarTheme.titleTextStyle?.color,
+                    ),
+                    child:  Center(child: SvgPicture.asset("assets/icons/arrow_left.svg",
+                      color: Theme.of(context).primaryTextTheme.titleMedium?.color,)),
+                  ),
                 ),
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              Text(
+                "Card Detail",
+                style: AppTextStyles.weightEight(
+                  context: context,
+                    fontSize: 22.sp),
               ),
               SizedBox(
                 height: 30.h,
@@ -77,7 +91,7 @@ class CardDetailPage extends GetView<CardDetailController> {
                 },
                 child: AuthBtn(
                     btnText: "Next",
-                    btnColor: Theme.of(context).appBarTheme.foregroundColor??Colors.red,
+                    btnColor: (controller.areFieldsFilled())?AppColors.themeColor:Theme.of(context).appBarTheme.foregroundColor??Colors.red,
                     btnBorderRadius: 8,
                     textColor: AppColors.whiteTextColor,
                     btnHeight: 50.h),

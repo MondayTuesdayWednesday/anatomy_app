@@ -41,7 +41,10 @@ class HomeDrawerMenuScreen extends GetView<HomeViewController> {
             height: 20.h,
           ),
       
-          draweritem(Icons.circle_outlined, 'All Models', () {} , context,),
+          draweritem(Icons.circle_outlined, 'All Models', () {
+
+            controller.toggleDrawer();
+          } , context,),
       
           Obx(() {
             return Column(
