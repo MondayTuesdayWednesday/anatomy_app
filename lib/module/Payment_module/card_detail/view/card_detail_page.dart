@@ -2,8 +2,7 @@ import 'package:anatomy/common/app_colors.dart';
 import 'package:anatomy/module/Payment_module/card_detail/controller/card_detail_controller.dart';
 import 'package:anatomy/module/Payment_module/welcome/payment_done_view.dart';
 import 'package:anatomy/module/authentication_module/widgets/auth_btn.dart';
-import 'package:anatomy/module/profile_module/appearance/binding/appearance_binding.dart';
-import 'package:anatomy/module/profile_module/appearance/screen/appearance_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

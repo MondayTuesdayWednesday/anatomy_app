@@ -32,7 +32,6 @@ class HomeViewController extends GetxController {
     "assets/images/video_lectures.png",
     "assets/images/virtual_dissection.png",
 
-
   ];
 
   var isPreferencesExpanded = false.obs;

@@ -1,5 +1,4 @@
-import 'package:anatomy/module/home_module/Widgets/home_drawer.dart';
-import 'package:anatomy/module/home_module/home/binding/home_view_binding.dart';
+
 import 'package:anatomy/module/slpash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,7 +35,8 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
-          home:   SplashScreen(),
+          home:   SplashScreen()
+
         );
       },
     );

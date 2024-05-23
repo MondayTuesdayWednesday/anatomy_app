@@ -16,7 +16,7 @@ class PaymentDoneView extends StatelessWidget {
           subTitle: AppTexts.paymentDoneSubTitleText,
           descriptionText: AppTexts.paymentDoneDEscriptionText,
           onPressed: () {
-            Get.to(const HomePageDrawer() , binding: HomeBinding());
+            Get.offAll(const HomePageDrawer() , binding: HomeBinding());
           },
         ));
   }

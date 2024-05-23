@@ -15,23 +15,21 @@ class UpperLimbPage extends GetView<UpperLimbController>{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgThemeColor,
-      body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 25.w),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 50.h,
-            ),
-            Row(
+      body: Column(
+        children: [
+          SizedBox(
+            height: 40.h,
+          ),
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 20.w),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: SvgPicture.asset(AppAssets.arrowBack)),
+
+                IconButton(onPressed: () => Get.back(), icon: SvgPicture.asset(AppAssets.arrowBack)),
+
                 SizedBox(
-                  width: 260.w,
+                  width: 200.w,
                   child: Text("Upper Limb",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -42,14 +40,17 @@ class UpperLimbPage extends GetView<UpperLimbController>{
                     ),),
                 ),
                 SizedBox(
-                  width: 10.w,
+                  width: 25.w,
                 ),
               ],
             ),
-            SizedBox(
-              height: 23.h,
-            ),
-            Container(
+          ),
+          SizedBox(
+            height: 23.h,
+          ),
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 25.w),
+            child: Container(
               height: 37.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
@@ -65,7 +66,7 @@ class UpperLimbPage extends GetView<UpperLimbController>{
                   ]
               ),
               child: Padding(
-                padding:  EdgeInsets.symmetric(vertical: 5.h),
+                padding:  EdgeInsets.symmetric(vertical: 10.h),
                 child: TextFormField(
                   decoration: InputDecoration(
                       border: InputBorder.none,
@@ -81,15 +82,18 @@ class UpperLimbPage extends GetView<UpperLimbController>{
                 ),
               ),
             ),
-            SizedBox(
-              height: 10.h,
-            ),
-            Expanded(child: GridView.builder(
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          Expanded(child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 25.w),
+            child: GridView.builder(
               gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 0.8,
-                  crossAxisSpacing: 15,
-                  mainAxisSpacing: 5
+                  childAspectRatio: 0.67,
+                  crossAxisSpacing: 60,
+                  mainAxisSpacing: 15
               ),
               itemCount: controller.imageList.length,
               itemBuilder: (context, index) {
@@ -148,10 +152,10 @@ class UpperLimbPage extends GetView<UpperLimbController>{
                     )
                   ],
                 );
-              },))
+              },),
+          ))
 
-          ],
-        ),
+        ],
       ),
     );
   }

@@ -15,23 +15,21 @@ class HeadNeckPage extends GetView<HeadNeckController>{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgThemeColor,
-      body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 25.w),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 50.h,
-            ),
-            Row(
+      body: Column(
+        children: [
+          SizedBox(
+            height: 40.h,
+          ),
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 20.w),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: SvgPicture.asset(AppAssets.arrowBack)),
+
+                IconButton(onPressed: () => Get.back(), icon: SvgPicture.asset(AppAssets.arrowBack)),
+
                 SizedBox(
-                  width: 260.w,
+                  width: 200.w,
                   child: Text("Head and Neck",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -42,14 +40,17 @@ class HeadNeckPage extends GetView<HeadNeckController>{
                     ),),
                 ),
                 SizedBox(
-                  width: 10.w,
+                  width: 25.w,
                 ),
               ],
             ),
-            SizedBox(
-              height: 10.h,
-            ),
-            Expanded(child: GridView.builder(
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          Expanded(child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 25.w),
+            child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 0.67,
@@ -110,10 +111,10 @@ class HeadNeckPage extends GetView<HeadNeckController>{
                     )
                   ],
                 );
-              },))
+              },),
+          ))
 
-          ],
-        ),
+        ],
       ),
     );
   }

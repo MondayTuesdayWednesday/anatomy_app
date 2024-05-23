@@ -11,7 +11,7 @@ List<String> textList=
       "Gastrointestinal System",
       "Male Urogenital System",
       "Female Urogenital System",
-      "Large Intestine",
+      "Eye",
       "Female Breasts",
 
     ];

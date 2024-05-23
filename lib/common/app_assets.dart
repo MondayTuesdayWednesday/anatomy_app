@@ -21,4 +21,5 @@ class AppAssets {
   static const String question6bg = 'assets/images/q6.png';
 
   static const String arrowBack = "assets/icons/arrowback.svg";
+  static const String playIcon = "assets/icons/play_icon.svg.svg";
 }

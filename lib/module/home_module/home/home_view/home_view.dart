@@ -1,14 +1,22 @@
 import 'package:anatomy/common/app_text_styles.dart';
-import 'package:anatomy/module/home_module/female_anatomy/binding/female_binding.dart';
-import 'package:anatomy/module/home_module/female_anatomy/view/female_view.dart';
 import 'package:anatomy/module/home_module/regional_anatomy/binding/regional_anatomy_binding.dart';
 import 'package:anatomy/module/home_module/regional_anatomy/view/regional_anatomy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../../common/app_colors.dart';
+import '../../cross_sectional/binding/cross_sectional_binding.dart';
+import '../../cross_sectional/view/cross_sectional_view.dart';
+import '../../female_anatomy/binding/female_binding.dart';
+import '../../female_anatomy/view/female_view.dart';
 import '../../male_anatomy/binding/male_binding.dart';
 import '../../male_anatomy/view/male_view.dart';
+import '../../surface_anatomy/binding/surface_binding.dart';
+import '../../surface_anatomy/view/surface_page.dart';
+import '../../video_lecture/binding/lecture_binding.dart';
+import '../../video_lecture/view/lecture_page.dart';
+import '../../virtual_dissection/binding/virtual_binding.dart';
+import '../../virtual_dissection/view/virtual_page.dart';
 import '../controller/home_view_controller.dart';
 
 class HomePageView extends GetView<HomeViewController> {
@@ -64,7 +72,7 @@ class HomePageView extends GetView<HomeViewController> {
                     ]
                   ),
                   child: Padding(
-                    padding:  EdgeInsets.symmetric(vertical: 5.h),
+                    padding:  EdgeInsets.symmetric(vertical: 10.h),
                     child: TextFormField(
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -96,11 +104,11 @@ class HomePageView extends GetView<HomeViewController> {
             Expanded(child: GridView.builder(
               itemCount: controller.imageList.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.6,
+                crossAxisCount: 2,
+                childAspectRatio: 0.6,
                 crossAxisSpacing: 55,
 
-            ), itemBuilder:(context, index) {
+              ), itemBuilder:(context, index) {
               return Column(
                 children: [
                   GestureDetector(
@@ -108,7 +116,7 @@ class HomePageView extends GetView<HomeViewController> {
                       switch(index){
                         case 0:
                           {
-              Get.to(const MaleView(),binding: MaleBinding());
+                            Get.to(const MaleView(),binding: MaleBinding());
                           }
                         case 1:
                           {
@@ -120,15 +128,19 @@ class HomePageView extends GetView<HomeViewController> {
                           }
                         case 3:
                           {
+                            Get.to(const SurfacePage(),binding: SurfaceBinding());
                           }
                         case 4:
                           {
+                            Get.to(const CrossSectionalView(),binding: CrossSectionalBinding());
                           }
                         case 5:
                           {
+                            Get.to(const LecturePage(),binding: LectureBinding());
                           }
                         case 6:
                           {
+                            Get.to(const VirtualPage(),binding: VirtualBinding());
                           }
                       }
                     },
@@ -174,7 +186,7 @@ class HomePageView extends GetView<HomeViewController> {
                       ),
                       // Solid text as fill.
                       Text(
-                      controller.textList[index],
+                        controller.textList[index],
                         style: TextStyle(
                           fontSize: 15.sp,
                           color: Theme.of(context).appBarTheme.titleTextStyle?.color,

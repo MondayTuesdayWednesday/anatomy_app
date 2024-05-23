@@ -51,18 +51,13 @@ class PaymentView extends GetView<PaymentController> {
               ),
               SizedBox(
                 width: 283.w,
-                child: GestureDetector(
-                  onTap: (){
-                    Get.to(AppearancePage(),binding: AppearanceBinding());
-                  },
-                  child: Text(
-                    AppTexts.achieveGoalsText,
-                    style: TextStyle(
-                      color:Theme.of(context).appBarTheme.backgroundColor,
-                      fontSize: 25.sp,
-                      fontFamily: AppTextStyles.fontFamily,
-                      fontWeight: FontWeight.w700,
-                    ),
+                child: Text(
+                  AppTexts.achieveGoalsText,
+                  style: TextStyle(
+                    color:Theme.of(context).appBarTheme.backgroundColor,
+                    fontSize: 25.sp,
+                    fontFamily: AppTextStyles.fontFamily,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
