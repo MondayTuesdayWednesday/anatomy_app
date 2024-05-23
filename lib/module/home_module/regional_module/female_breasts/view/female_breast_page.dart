@@ -46,7 +46,7 @@ class FemaleBreastPage extends GetView<FemaleBreastController>{
 
 
                                   SizedBox(
-                                    width: 90.w,
+                                    width: 100.w,
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [

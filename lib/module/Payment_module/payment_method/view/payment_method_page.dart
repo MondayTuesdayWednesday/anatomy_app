@@ -90,7 +90,7 @@ class PaymentMethodPage extends GetView<PaymentMethodController> {
              ),
              GestureDetector(
                onTap: (){
-                 Get.off(CardDetailPage(),binding: CardDetailBinding());},
+                 Get.to(CardDetailPage(),binding: CardDetailBinding());},
                child: Container(
                  height: 45.h,
                  decoration: BoxDecoration(

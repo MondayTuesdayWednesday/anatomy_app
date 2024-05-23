@@ -46,7 +46,7 @@ class SkeletonView extends GetView<SkeletonController>{
 
 
                                   SizedBox(
-                                    width: 90.w,
+                                    width: 100.w,
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
